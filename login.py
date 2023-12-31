@@ -18,130 +18,132 @@ def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 
-window = Tk()
+class TelaLogin:
+    def __init__(self):
+        self.window = Tk()
 
-window.geometry("1356x826")
-window.configure(bg = "#FFFFFF")
+        self.window.geometry("1356x826")
+        self.window.configure(bg = "#FFFFFF")
 
 
-canvas = Canvas(
-    window,
-    bg = "#FFFFFF",
-    height = 826,
-    width = 1356,
-    bd = 0,
-    highlightthickness = 0,
-    relief = "ridge"
-)
+        self.canvas = Canvas(
+            self.window,
+            bg = "#FFFFFF",
+            height = 826,
+            width = 1356,
+            bd = 0,
+            highlightthickness = 0,
+            relief = "ridge"
+        )
 
-canvas.place(x = 0, y = 0)
-canvas.create_rectangle(
-    404.0,
-    137.0,
-    952.0,
-    689.0,
-    fill="#16453F",
-    outline="")
+        self.canvas.place(x = 0, y = 0)
+        self.canvas.create_rectangle(
+            404.0,
+            137.0,
+            952.0,
+            689.0,
+            fill="#16453F",
+            outline="")
 
-canvas.create_text(
-    624.0,
-    187.0,
-    anchor="nw",
-    text="Login",
-    fill="#EEF4EC",
-    font=("Inter Bold", 40 * -1)
-)
+        self.canvas.create_text(
+            624.0,
+            187.0,
+            anchor="nw",
+            text="Login",
+            fill="#EEF4EC",
+            font=("Inter Bold", 40 * -1)
+        )
 
-button_image_1 = PhotoImage(
-    file=relative_to_assets("button_1.png"))
-button_1 = Button(
-    image=button_image_1,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_1 clicked"),
-    relief="flat"
-)
-button_1.place(
-    x=578.0,
-    y=509.0,
-    width=194.0,
-    height=80.0
-)
+        self.button_image_1 = PhotoImage(
+            file=relative_to_assets("button_1.png"))
+        self.button_1 = Button(
+            image=self.button_image_1,
+            borderwidth=0,
+            highlightthickness=0,
+            command=lambda: print("button_1 clicked"),
+            relief="flat"
+        )
+        self.button_1.place(
+            x=578.0,
+            y=509.0,
+            width=194.0,
+            height=80.0
+        )
 
-entry_image_1 = PhotoImage(
-    file=relative_to_assets("entry_1.png"))
-entry_bg_1 = canvas.create_image(
-    678.0,
-    320.0,
-    image=entry_image_1
-)
-entry_1 = Entry(
-    bd=0,
-    bg="#EEF4EC",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_1.place(
-    x=451.0,
-    y=280.0,
-    width=454.0,
-    height=78.0
-)
+        self.entry_image_1 = PhotoImage(
+            file=relative_to_assets("entry_1.png"))
+        self.entry_bg_1 = self.canvas.create_image(
+            678.0,
+            320.0,
+            image=self.entry_image_1
+        )
+        self.entry_1 = Entry(
+            bd=0,
+            bg="#EEF4EC",
+            fg="#000716",
+            highlightthickness=0
+        )
+        self.entry_1.place(
+            x=451.0,
+            y=280.0,
+            width=454.0,
+            height=78.0
+        )
 
-canvas.create_text(
-    451.0,
-    251.0,
-    anchor="nw",
-    text="CPF",
-    fill="#EEF4EC",
-    font=("Inter Bold", 24 * -1)
-)
+        self.canvas.create_text(
+            451.0,
+            251.0,
+            anchor="nw",
+            text="CPF",
+            fill="#EEF4EC",
+            font=("Inter Bold", 24 * -1)
+        )
 
-entry_image_2 = PhotoImage(
-    file=relative_to_assets("entry_2.png"))
-entry_bg_2 = canvas.create_image(
-    678.0,
-    431.0,
-    image=entry_image_2
-)
-entry_2 = Entry(
-    bd=0,
-    bg="#EEF4EC",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_2.place(
-    x=451.0,
-    y=391.0,
-    width=454.0,
-    height=78.0
-)
+        self.entry_image_2 = PhotoImage(
+            file=relative_to_assets("entry_2.png"))
+        self.entry_bg_2 = self.canvas.create_image(
+            678.0,
+            431.0,
+            image=self.entry_image_2
+        )
+        self.entry_2 = Entry(
+            bd=0,
+            bg="#EEF4EC",
+            fg="#000716",
+            highlightthickness=0
+        )
+        self.entry_2.place(
+            x=451.0,
+            y=391.0,
+            width=454.0,
+            height=78.0
+        )
 
-canvas.create_text(
-    450.0,
-    362.0,
-    anchor="nw",
-    text="Palavra-passe",
-    fill="#EEF4EC",
-    font=("Inter Bold", 24 * -1)
-)
+        self.canvas.create_text(
+            450.0,
+            362.0,
+            anchor="nw",
+            text="Palavra-passe",
+            fill="#EEF4EC",
+            font=("Inter Bold", 24 * -1)
+        )
 
-canvas.create_text(
-    439.0,
-    627.0,
-    anchor="nw",
-    text="Esqueceu a senha?",
-    fill="#EEF4EC",
-    font=("Inter Bold", 24 * -1)
-)
+        self.canvas.create_text(
+            439.0,
+            627.0,
+            anchor="nw",
+            text="Esqueceu a senha?",
+            fill="#EEF4EC",
+            font=("Inter Bold", 24 * -1)
+        )
 
-canvas.create_text(
-    711.0,
-    627.0,
-    anchor="nw",
-    text="Não tem conta?",
-    fill="#EEF4EC",
-    font=("Inter Bold", 24 * -1)
-)
-window.resizable(False, False)
-window.mainloop()
+        self.canvas.create_text(
+            711.0,
+            627.0,
+            anchor="nw",
+            text="Não tem conta?",
+            fill="#EEF4EC",
+            font=("Inter Bold", 24 * -1)
+        )
+        self.window.resizable(False, False)
+        self.window.mainloop()
