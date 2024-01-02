@@ -18,7 +18,7 @@ class App:
             TelaAtual.destroy()
             ProximaTela.pack
 
-        self.tela_atual = TelaLogin()
+        self.tela_atual = TelaMenu()
         
 
 
