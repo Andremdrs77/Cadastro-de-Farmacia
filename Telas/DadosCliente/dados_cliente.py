@@ -158,14 +158,6 @@ class TelaDadosCliente:
         self.canvas.create_rectangle(
             117.0,
             478.0,
-            699.0,
-            516.0,
-            fill="#C9CDCA",
-            outline="")
-
-        self.canvas.create_rectangle(
-            722.0,
-            473.0,
             1253.0,
             515.0,
             fill="#C9CDCA",
@@ -248,15 +240,6 @@ class TelaDadosCliente:
             482.0,
             anchor="nw",
             text="Endereço:",
-            fill="#000000",
-            font=("Inter", 24 * -1)
-        )
-
-        self.canvas.create_text(
-            731.0,
-            481.0,
-            anchor="nw",
-            text="Complemento:",
             fill="#000000",
             font=("Inter", 24 * -1)
         )
