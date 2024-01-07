@@ -148,5 +148,3 @@ class TelaLogin():
         )
         self.window.resizable(False, False)
         self.window.mainloop()
-
-
