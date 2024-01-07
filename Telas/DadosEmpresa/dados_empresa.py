@@ -234,3 +234,5 @@ class TelaDadosEmpresa:
         )
         self.window.resizable(False, False)
         self.window.mainloop()
+
+a = TelaDadosEmpresa()

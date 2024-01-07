@@ -287,3 +287,5 @@ class TelaDadosCliente:
         )
         self.window.resizable(False, False)
         self.window.mainloop()
+
+a = TelaDadosCliente()
