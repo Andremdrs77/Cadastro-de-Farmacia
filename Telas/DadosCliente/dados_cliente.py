@@ -45,7 +45,8 @@ class TelaDadosCliente:
             borderwidth=0,
             highlightthickness=0,
             command=lambda: print("self.button_1 clicked"),
-            relief="flat"
+            relief="flat",
+            background="#E4E6E5"
         )
         self.button_1.place(
             x=107.0,
@@ -146,7 +147,7 @@ class TelaDadosCliente:
             borderwidth=0,
             highlightthickness=0,
             command=lambda: print("self.button_2 clicked"),
-            relief="flat"
+            relief="flat",
         )
         self.button_2.place(
             x=1268.0,
@@ -185,7 +186,7 @@ class TelaDadosCliente:
             132.0,
             245.0,
             anchor="nw",
-            text="f”Nome: {sqlite.jonas} “",
+            text="”Nome:“",
             fill="#000000",
             font=("Inter", 24 * -1)
         )
@@ -270,5 +271,3 @@ class TelaDadosCliente:
         )
         self.window.resizable(False, False)
         self.window.mainloop()
-
-a = TelaDadosCliente()

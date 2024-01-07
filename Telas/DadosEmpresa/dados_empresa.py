@@ -144,7 +144,8 @@ class TelaDadosEmpresa:
             borderwidth=0,
             highlightthickness=0,
             command=lambda: print("self.button_2 clicked"),
-            relief="flat"
+            relief="flat",
+            background="#E4E6E5"
         )
         self.button_2.place(
             x=107.0,
@@ -234,5 +235,3 @@ class TelaDadosEmpresa:
         )
         self.window.resizable(False, False)
         self.window.mainloop()
-
-a = TelaDadosEmpresa()

@@ -169,7 +169,8 @@ class TelaDadosVendedor:
             borderwidth=0,
             highlightthickness=0,
             command=lambda: print("self.button_2 clicked"),
-            relief="flat"
+            relief="flat",
+            background="#E4E6E5"
         )
         self.button_2.place(
             x=107.0,
@@ -207,8 +208,8 @@ class TelaDadosVendedor:
         self.canvas.create_rectangle(
             118.0,
             536.0,
-            700.0,
-            574.0,
+            1254.0,
+            573.0,
             fill="#C9CDCA",
             outline="")
 
@@ -217,23 +218,6 @@ class TelaDadosVendedor:
             540.0,
             anchor="nw",
             text="Endereço:",
-            fill="#000000",
-            font=("Inter", 24 * -1)
-        )
-
-        self.canvas.create_rectangle(
-            723.0,
-            531.0,
-            1254.0,
-            573.0,
-            fill="#C9CDCA",
-            outline="")
-
-        self.canvas.create_text(
-            732.0,
-            539.0,
-            anchor="nw",
-            text="Complemento:",
             fill="#000000",
             font=("Inter", 24 * -1)
         )
@@ -302,3 +286,5 @@ class TelaDadosVendedor:
         )
         self.window.resizable(False, False)
         self.window.mainloop()
+
+a = TelaDadosVendedor()
