@@ -208,8 +208,8 @@ class TelaDadosEmpresa:
         )
 
         self.button_image_3 = PhotoImage(
-            file=relative_to_assets("self.button_3.png"))
-        self.button_3 = self.Button(
+            file=relative_to_assets("button_3.png"))
+        self.button_3 = Button(
             image=self.button_image_3,
             borderwidth=0,
             highlightthickness=0,
