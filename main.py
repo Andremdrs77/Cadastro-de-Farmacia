@@ -11,14 +11,7 @@ from Telas .CadastroRemedio .cadastrar_remedio import *
 from Telas .CadastroCliente . cadastrar_cliente import *
 
 
-
 class App:
     def __init__(self):
-        def MudaTela (TelaAtual, ProximaTela):
-            TelaAtual.destroy()
-            ProximaTela.pack
-
-        self.tela_atual = TelaLogin()
-
 
 aplicacao = App()

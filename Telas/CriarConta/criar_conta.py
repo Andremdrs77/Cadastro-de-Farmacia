@@ -47,7 +47,7 @@ class TelaCriarConta:
             553.0,
             167.0,
             anchor="nw",
-            text="Insira os dados da sua empressa",
+            text="Insira os dados da sua empresa",
             fill="#A6F6AF",
             font=("Inter SemiBold", 14 * -1)
         )
@@ -217,7 +217,7 @@ class TelaCriarConta:
             256.0,
             359.0,
             anchor="nw",
-            text="Logradouro",
+            text="E-mail",
             fill="#EEF4EC",
             font=("Inter SemiBold", 25 * -1)
         )

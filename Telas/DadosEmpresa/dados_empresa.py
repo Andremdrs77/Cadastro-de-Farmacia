@@ -54,14 +54,6 @@ class TelaDadosEmpresa:
 
         self.canvas.create_rectangle(
             117.0,
-            426.0,
-            699.0,
-            468.0,
-            fill="#C9CDCA",
-            outline="")
-
-        self.canvas.create_rectangle(
-            117.0,
             302.0,
             1253.0,
             340.0,
@@ -87,7 +79,7 @@ class TelaDadosEmpresa:
         )
         self.button_1.place(
             x=522.0,
-            y=549.0,
+            y=506.0,
             width=312.0,
             height=59.0
         )
@@ -110,14 +102,6 @@ class TelaDadosEmpresa:
             font=("Inter", 24 * -1)
         )
 
-        self.canvas.create_text(
-            131.0,
-            430.0,
-            anchor="nw",
-            text="Registro de Vendedores:",
-            fill="#000000",
-            font=("Inter", 24 * -1)
-        )
 
         self.canvas.create_text(
             118.0,
@@ -154,22 +138,6 @@ class TelaDadosEmpresa:
             height=37.0,
         )
 
-        self.canvas.create_rectangle(
-            722.0,
-            426.0,
-            1253.0,
-            468.0,
-            fill="#C9CDCA",
-            outline="")
-
-        self.canvas.create_text(
-            733.0,
-            433.0,
-            anchor="nw",
-            text="Registro de Clientes:",
-            fill="#000000",
-            font=("Inter", 24 * -1)
-        )
 
         self.canvas.create_text(
             131.0,
@@ -235,3 +203,6 @@ class TelaDadosEmpresa:
         )
         self.window.resizable(False, False)
         self.window.mainloop()
+
+a = TelaDadosEmpresa(
+)
