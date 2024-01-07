@@ -56,7 +56,6 @@ class App:
         
         self.tela = TelaLogin()
         self.cnpj = None
-        self.nomeEmpresa = ""
 
         self.tela.button_1.configure(command=lambda: self.infoTelas(tela="Menu", cnpj=self.tela.entry_1.get()))
 
