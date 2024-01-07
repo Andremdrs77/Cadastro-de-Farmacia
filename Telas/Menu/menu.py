@@ -5,9 +5,11 @@
 
 from pathlib import Path
 
+from PIL import Image,ImageTk
+
 # from tkinter import *
 # Explicit imports to satisfy Flake8
-from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
+from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, Label
 
 
 OUTPUT_PATH = Path(__file__).parent
@@ -21,11 +23,8 @@ def relative_to_assets(path: str) -> Path:
 class TelaMenu:
     def __init__(self):
         self.window = Tk()
-
         self.window.geometry("1356x826")
-        self.window.configure(bg = "#FFFFFF")
-
-        self.nomeEmpresa = "oi"
+        self.window.configure(bg="#FFFFFF")
 
         self.canvas = Canvas(
             self.window,
@@ -42,7 +41,7 @@ class TelaMenu:
             376.0,
             100.0,
             anchor="nw",
-            text=self.nomeEmpresa,
+            text="Seja bem vindo,\nEmpresa!",
             fill="#16453F",
             font=("Inter Bold", 80 * -1)
         )
@@ -159,7 +158,17 @@ class TelaMenu:
             width=169.0,
             height=37.0
         )
+
+        self.remedioImagem = Image.open(relative_to_assets("logo-farmacia.png"))
+        self.remedioImagem = self.remedioImagem.resize((100,100))
+
+        self.ImgRemedio = ImageTk.PhotoImage(self.remedioImagem)
+
+        
+        self.RemedioLabel = Label(self.window, image=self.ImgRemedio, bg="#FFFFFF")
+        self.RemedioLabel.pack()
+
         self.window.resizable(False, False)
         self.window.mainloop()
 
-a = TelaMenu()
+tela = TelaMenu()
