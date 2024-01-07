@@ -93,7 +93,7 @@ class TelaLogin():
             451.0,
             251.0,
             anchor="nw",
-            text="CPF",
+            text="CNPJ",
             fill="#EEF4EC",
             font=("Inter Bold", 24 * -1)
         )

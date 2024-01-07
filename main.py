@@ -24,6 +24,14 @@ finally:
 
 class App:
     def __init__(self):
+        self.tela = TelaLogin()
+        self.cnpj = None
+        self.nomeEmpresa = ""
+
+        self.tela.button_1.configure(command=lambda: self.infoTelas(tela="", cnpj=self.tela.entry_1.get()))
 
 
+    def infoTelas(self, tela, cnpj):
+        if tela == TelaMenu():
+            self.Tela.nomeEmpresa() = ""
 aplicacao = App()
