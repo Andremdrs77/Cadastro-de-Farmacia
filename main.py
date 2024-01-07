@@ -24,6 +24,6 @@ finally:
 
 class App:
     def __init__(self):
-
+        
 
 aplicacao = App()
