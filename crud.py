@@ -16,6 +16,6 @@ cursor.execute("CREATE TABLE remedio (rem_nome text, rem_empresa text, rem_lote 
 
 """
 
-cursor.execute("INSERT INTO empresa (emp_nome, emp_senha, emp_email, emp_cnpj) VALUES ('Vasco', '123123', 'vasco.jonas@gmail.com', '903912093120390/0003')")
+cursor.execute("INSERT INTO empresa (emp_nome, emp_senha, emp_email, emp_cnpj) VALUES ('Admin', '123123', 'Admin@gmail.com', '0')")
 
 banco.commit()
