@@ -220,7 +220,7 @@ class TelaDadosCliente:
             130.0,
             299.0,
             anchor="nw",
-            text="Senha: ********",
+            text="Senha:",
             fill="#000000",
             font=("Inter", 24 * -1)
         )

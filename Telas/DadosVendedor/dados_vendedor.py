@@ -104,7 +104,7 @@ class TelaDadosVendedor:
             131.0,
             357.0,
             anchor="nw",
-            text="Senha: ********",
+            text="Senha:",
             fill="#000000",
             font=("Inter", 24 * -1)
         )

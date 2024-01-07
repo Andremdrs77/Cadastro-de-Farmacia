@@ -96,7 +96,7 @@ class TelaDadosEmpresa:
             125.0,
             305.0,
             anchor="nw",
-            text="Senha: ********",
+            text="Senha:",
             fill="#000000",
             font=("Inter", 24 * -1)
         )
