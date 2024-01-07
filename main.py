@@ -21,4 +21,4 @@ class App:
         self.tela_atual = TelaLogin()
 
 
-aplicacao = App()fhashfasifhsafjhasgjlf
+aplicacao = App()
