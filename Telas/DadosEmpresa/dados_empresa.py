@@ -150,7 +150,7 @@ class TelaDadosEmpresa:
             x=107.0,
             y=30.0,
             width=169.0,
-            height=37.0
+            height=37.0,
         )
 
         self.canvas.create_rectangle(
@@ -198,7 +198,8 @@ class TelaDadosEmpresa:
             bd=0,
             bg="#C9CDCA",
             fg="#000716",
-            highlightthickness=0
+            highlightthickness=0,
+            font=("Arial", 15)
         )
         self.entry_1.place(
             x=804.0,

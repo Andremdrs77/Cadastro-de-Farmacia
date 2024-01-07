@@ -199,7 +199,8 @@ class TelaDadosRemedio:
             bd=0,
             bg="#C9CDCA",
             fg="#000716",
-            highlightthickness=0
+            highlightthickness=0,
+            font=("Arial", 15)
         )
         self.entry_1.place(
             x=199.0,

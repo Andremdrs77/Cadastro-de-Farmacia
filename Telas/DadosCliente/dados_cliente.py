@@ -132,7 +132,8 @@ entry_1.place(
     x=804.0,
     y=295.0,
     width=449.0,
-    height=36.0
+    height=36.0,
+    font=("Arial", 15)
 )
 
 button_image_2 = PhotoImage(
