@@ -28,11 +28,12 @@ class App:
         self.cnpj = None
         self.nomeEmpresa = ""
 
-        self.tela.button_1.configure(command=lambda: self.infoTelas(tela="", cnpj=self.tela.entry_1.get()))
+        self.tela.button_1.configure(command=lambda: self.infoTelas(tela="Menu", cnpj=self.tela.entry_1.get()))
 
 
     def infoTelas(self, tela, cnpj):
-        if tela == TelaMenu():
+        if tela == "Menu":
+            self.tela = 
             nome_empresa = self.GetNomeEmpresa(cnpj)
             self.tela.nomeEmpresa = nome_empresa
 
@@ -50,8 +51,9 @@ class App:
         except Exception as e:
             print(f"Erro ao obter nome da empresa: {e}")
         finally:
-            farmacia.close()
             cursor.close()
+            farmacia.close()
 
-            
+
+
 aplicacao = App()
