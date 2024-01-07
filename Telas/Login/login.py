@@ -8,6 +8,8 @@ from pathlib import Path
 # from tkinter import *
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
+import sqlite3
+import ...crud
 
 
 OUTPUT_PATH = Path(__file__).parent
@@ -60,7 +62,7 @@ class TelaLogin():
             image=self.button_image_1,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("button_1 clicked"),
+            command= self.login,
             relief="flat"
         )
         self.button_1.place(
@@ -148,3 +150,16 @@ class TelaLogin():
         )
         self.window.resizable(False, False)
         self.window.mainloop()
+
+    def login(self):
+        cnpj = self.entry_1.get()
+        senha = self.entry_2.get()
+        banco = crud.banco
+        cursor = crud.cursor
+        cursor.execute(f"SELECT emp_senha FROM empresa WHERE emp_cnpj = {cnpj}")
+        senha_bd = cursor.fetchall()
+        print(senha_bd[0])
+        banco.close()
+        
+
+tela = TelaLogin()
