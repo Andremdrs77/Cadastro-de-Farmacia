@@ -102,3 +102,4 @@ def criarVendedor(nome, senha, empresa, cpf, email, cep, telefone, data, enderec
     finally:
         cursor.close()
         farmacia.close()
+

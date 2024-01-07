@@ -33,5 +33,25 @@ class App:
 
     def infoTelas(self, tela, cnpj):
         if tela == TelaMenu():
-            self.Tela.nomeEmpresa() = ""
+            nome_empresa = self.GetNomeEmpresa(cnpj)
+            self.tela.nomeEmpresa = nome_empresa
+
+
+    def GetNomeEmpresa(self, cnpj):
+        try:
+            farmacia = sqlite3.connect('farmacia_dados.db')
+            cursor = farmacia.cursor()
+            cursor.execute('SELECT emp_nome FROM empresa WHERE emp_cnpj = ?', (cnpj,))
+            result = cursor.fetchone()
+            if result:
+                return result[0]
+            else:
+                return "Empresa não encontrada"
+        except Exception as e:
+            print(f"Erro ao obter nome da empresa: {e}")
+        finally:
+            farmacia.close()
+            cursor.close()
+
+            
 aplicacao = App()

@@ -26,6 +26,8 @@ class TelaMenu:
         self.window.geometry("1356x826")
         self.window.configure(bg="#FFFFFF")
 
+        self.nomeEmpresa = "Empresa"
+
         self.canvas = Canvas(
             self.window,
             bg = "#FFFFFF",
@@ -41,7 +43,7 @@ class TelaMenu:
             376.0,
             100.0,
             anchor="nw",
-            text="Seja bem vindo,\nEmpresa!",
+            text=self.nomeEmpresa,
             fill="#16453F",
             font=("Inter Bold", 80 * -1)
         )
@@ -170,5 +172,3 @@ class TelaMenu:
 
         self.window.resizable(False, False)
         self.window.mainloop()
-
-tela = TelaMenu()
