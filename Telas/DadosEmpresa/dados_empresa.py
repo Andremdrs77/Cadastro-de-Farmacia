@@ -18,184 +18,217 @@ def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 
-class TelaDadosEmpresa:
-    def __init__(self):
-        self.window = Tk()
+window = Tk()
 
-        self.window.geometry("1356x826")
-        self.window.configure(bg = "#E4E6E5")
+window.geometry("1356x826")
+window.configure(bg = "#E4E6E5")
 
 
-        self.canvas = Canvas(
-            self.window,
-            bg = "#E4E6E5",
-            height = 826,
-            width = 1356,
-            bd = 0,
-            highlightthickness = 0,
-            relief = "ridge"
-        )
+canvas = Canvas(
+    window,
+    bg = "#E4E6E5",
+    height = 826,
+    width = 1356,
+    bd = 0,
+    highlightthickness = 0,
+    relief = "ridge"
+)
 
-        self.canvas.place(x = 0, y = 0)
-        self.canvas.create_rectangle(
-            117.0,
-            85.0,
-            1253.0,
-            168.0,
-            fill="#16453F",
-            outline="")
+canvas.place(x = 0, y = 0)
+canvas.create_rectangle(
+    117.0,
+    85.0,
+    1253.0,
+    168.0,
+    fill="#16453F",
+    outline="")
 
-        self.canvas.create_rectangle(
-            117.0,
-            238.0,
-            1253.0,
-            280.0,
-            fill="#C9CDCA",
-            outline="")
+canvas.create_rectangle(
+    117.0,
+    238.0,
+    1253.0,
+    280.0,
+    fill="#C9CDCA",
+    outline="")
 
-        self.canvas.create_rectangle(
-            117.0,
-            426.0,
-            699.0,
-            468.0,
-            fill="#C9CDCA",
-            outline="")
+canvas.create_rectangle(
+    117.0,
+    426.0,
+    699.0,
+    468.0,
+    fill="#C9CDCA",
+    outline="")
 
-        self.canvas.create_rectangle(
-            117.0,
-            302.0,
-            1253.0,
-            340.0,
-            fill="#C9CDCA",
-            outline="")
+canvas.create_rectangle(
+    117.0,
+    302.0,
+    1253.0,
+    340.0,
+    fill="#C9CDCA",
+    outline="")
 
-        self.canvas.create_rectangle(
-            722.0,
-            362.0,
-            1253.0,
-            406.0,
-            fill="#C9CDCA",
-            outline="")
+canvas.create_rectangle(
+    118.0,
+    362.0,
+    699.0,
+    405.0,
+    fill="#C9CDCA",
+    outline="")
 
-        self.canvas.create_rectangle(
-            118.0,
-            362.0,
-            699.0,
-            405.0,
-            fill="#C9CDCA",
-            outline="")
+button_image_1 = PhotoImage(
+    file=relative_to_assets("button_1.png"))
+button_1 = Button(
+    image=button_image_1,
+    borderwidth=0,
+    highlightthickness=0,
+    command=lambda: print("button_1 clicked"),
+    relief="flat"
+)
+button_1.place(
+    x=522.0,
+    y=549.0,
+    width=312.0,
+    height=59.0
+)
 
-        self.button_image_1 = PhotoImage(
-            file=relative_to_assets("button_1.png"))
-        self.button_1 = Button(
-            image=self.button_image_1,
-            borderwidth=0,
-            highlightthickness=0,
-            command=lambda: print("button_1 clicked"),
-            relief="flat",
-        )
-        self.button_1.place(
-            x=522.0,
-            y=549.0,
-            width=312.0,
-            height=59.0
-        )
+canvas.create_text(
+    125.0,
+    305.0,
+    anchor="nw",
+    text="Senha: ********",
+    fill="#000000",
+    font=("Inter", 24 * -1)
+)
 
-        self.canvas.create_text(
-            125.0,
-            305.0,
-            anchor="nw",
-            text="Senha: ********",
-            fill="#000000",
-            font=("Inter", 24 * -1)
-        )
+canvas.create_text(
+    131.0,
+    246.0,
+    anchor="nw",
+    text="Nome: ",
+    fill="#000000",
+    font=("Inter", 24 * -1)
+)
 
-        self.canvas.create_text(
-            131.0,
-            246.0,
-            anchor="nw",
-            text="Nome: ",
-            fill="#000000",
-            font=("Inter", 24 * -1)
-        )
+canvas.create_text(
+    131.0,
+    430.0,
+    anchor="nw",
+    text="Registro de Vendedores:",
+    fill="#000000",
+    font=("Inter", 24 * -1)
+)
 
-        self.canvas.create_text(
-            131.0,
-            430.0,
-            anchor="nw",
-            text="Registro de Vendedores:",
-            fill="#000000",
-            font=("Inter", 24 * -1)
-        )
+canvas.create_text(
+    118.0,
+    189.0,
+    anchor="nw",
+    text="Dados da Clínica",
+    fill="#000000",
+    font=("Inter", 32 * -1)
+)
 
-        self.canvas.create_text(
-            118.0,
-            189.0,
-            anchor="nw",
-            text="Dados da Clínica",
-            fill="#000000",
-            font=("Inter", 32 * -1)
-        )
+canvas.create_text(
+    394.0,
+    89.0,
+    anchor="nw",
+    text="Dados da empresa",
+    fill="#FFFFFF",
+    font=("Inter Bold", 64 * -1)
+)
 
-        self.canvas.create_text(
-            394.0,
-            89.0,
-            anchor="nw",
-            text="Dados da empresa",
-            fill="#FFFFFF",
-            font=("Inter Bold", 64 * -1)
-        )
+button_image_2 = PhotoImage(
+    file=relative_to_assets("button_2.png"))
+button_2 = Button(
+    image=button_image_2,
+    borderwidth=0,
+    highlightthickness=0,
+    command=lambda: print("button_2 clicked"),
+    relief="flat"
+)
+button_2.place(
+    x=107.0,
+    y=30.0,
+    width=169.0,
+    height=37.0
+)
 
-        self.button_image_2 = PhotoImage(
-            file=relative_to_assets("button_2.png"))
-        self.button_2 = Button(
-            image=self.button_image_2,
-            borderwidth=0,
-            highlightthickness=0,
-            command=lambda: print("button_2 clicked"),
-            relief="flat",
-            background="#E4E6E5",
-        )
-        self.button_2.place(
-            x=107.0,
-            y=30.0,
-            width=169.0,
-            height=37.0
-        )
+canvas.create_rectangle(
+    722.0,
+    426.0,
+    1253.0,
+    468.0,
+    fill="#C9CDCA",
+    outline="")
 
-        self.canvas.create_text(
-            733.0,
-            370.0,
-            anchor="nw",
-            text="CNPJ:",
-            fill="#000000",
-            font=("Inter", 24 * -1)
-        )
+canvas.create_text(
+    733.0,
+    433.0,
+    anchor="nw",
+    text="Registro de Clientes:",
+    fill="#000000",
+    font=("Inter", 24 * -1)
+)
 
-        self.canvas.create_rectangle(
-            722.0,
-            426.0,
-            1253.0,
-            468.0,
-            fill="#C9CDCA",
-            outline="")
+canvas.create_text(
+    131.0,
+    370.0,
+    anchor="nw",
+    text="E-mail:",
+    fill="#000000",
+    font=("Inter", 24 * -1)
+)
 
-        self.canvas.create_text(
-            733.0,
-            433.0,
-            anchor="nw",
-            text="Registro de Clientes:",
-            fill="#000000",
-            font=("Inter", 24 * -1)
-        )
+canvas.create_rectangle(
+    722.0,
+    364.0,
+    798.0,
+    407.0,
+    fill="#C9CDCA",
+    outline="")
 
-        self.canvas.create_text(
-            131.0,
-            370.0,
-            anchor="nw",
-            text="E-mail:",
-            fill="#000000",
-            font=("Inter", 24 * -1)
-        )
-        self.window.resizable(False, False)
-        self.window.mainloop()
+entry_image_1 = PhotoImage(
+    file=relative_to_assets("entry_1.png"))
+entry_bg_1 = canvas.create_image(
+    1028.5,
+    385.5,
+    image=entry_image_1
+)
+entry_1 = Entry(
+    bd=0,
+    bg="#C9CDCA",
+    fg="#000716",
+    highlightthickness=0
+)
+entry_1.place(
+    x=804.0,
+    y=364.0,
+    width=449.0,
+    height=41.0
+)
+
+button_image_3 = PhotoImage(
+    file=relative_to_assets("button_3.png"))
+button_3 = Button(
+    image=button_image_3,
+    borderwidth=0,
+    highlightthickness=0,
+    command=lambda: print("button_3 clicked"),
+    relief="flat"
+)
+button_3.place(
+    x=1268.0,
+    y=364.0,
+    width=75.0,
+    height=43.0
+)
+
+canvas.create_text(
+    730.0,
+    373.0,
+    anchor="nw",
+    text="CNPJ:",
+    fill="#000000",
+    font=("Inter", 23 * -1)
+)
+window.resizable(False, False)
+window.mainloop()
