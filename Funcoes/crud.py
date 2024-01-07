@@ -1,7 +1,7 @@
 import sqlite3
 
 
-def adicionar_cliente(nome, senha, email, cep, cpf, telefone, data, endereco):
+def criarCliente(nome, senha, email, cep, cpf, telefone, data, endereco):
     try:
         farmacia = sqlite3.connect('farmacia_dados.db')
         cursor = farmacia.cursor()

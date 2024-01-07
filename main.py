@@ -15,7 +15,7 @@ from Funcoes .crud import *
 try:
     farmacia = sqlite3.connect('farmacia_dados.db')
     cursor = farmacia.cursor()
-    cursor.execute('INSERT INTO empresa (emp_nome, emp_senha, emp_email, emp_cnpj) VALUES (?, ?, ?, ?)', ('admin', '123123', 'admin@gmail.com', '0'))
+    cursor.execute('INSERT INTO empresa (emp_nome, emp_senha, emp_email, emp_cnpj) VALUES (?, ?, ?, ?)', ('admin', '123123', 'admin@gmail.com', 'Admin'))
 except:
     print('Admin já existe.')
 finally:
@@ -29,13 +29,17 @@ class App:
         self.nomeEmpresa = ""
 
         self.tela.button_1.configure(command=lambda: self.infoTelas(tela="Menu", cnpj=self.tela.entry_1.get()))
-
+        self.tela.button_2.configure(command=lambda: self.infoTelas(tela="criarConta"))
 
     def infoTelas(self, tela, cnpj):
         if tela == "Menu":
-            self.tela = TelaMenu()
+            self.tela = TelaMenu(cnpj)
             nome_empresa = self.GetNomeEmpresa(cnpj)
             self.tela.nomeEmpresa = nome_empresa
+
+        elif tela == "":
+            pass
+        
 
 
     def GetNomeEmpresa(self, cnpj):
@@ -65,7 +69,38 @@ class App:
         self.tela.button_1.configure(command=lambda: self.infoTelas(tela="Menu", cnpj=self.tela.entry_1.get()))
 
 
-    
+    def menu(self, cnpj):
+        self.tela.window.destroy()
 
 
+    def criarConta(self):
+        self.tela.window.destroy()
+
+
+    def cadastrarVendedor(self):
+        self.tela.window.destroy()
+
+
+    def cadastrarCliente(self):
+        self.tela.window.destroy()
+
+
+    def cadastrarRemedio(self):
+        self.tela.window.destroy()
+
+
+    def dadosEmpresa(self):
+        self.tela.window.destroy()
+
+
+    def dadosCliente(self):
+        self.tela.window.destroy()
+
+
+    def dadosVendedor(self):
+        self.tela.window.destroy()
+
+
+    def dadosRemedio(self):
+        self.tela.window.destroy()
 aplicacao = App()
