@@ -10,7 +10,7 @@ from Telas .CriarConta .criar_conta import *
 from Telas .CadastroVendedor .cadastrar_vendedor import *
 from Telas .CadastroRemedio .cadastrar_remedio import *
 from Telas .CadastroCliente . cadastrar_cliente import *
-from Funcoes .funcoesdb import *
+from Funcoes .crud import *
 
 try:
     farmacia = sqlite3.connect('farmacia_dados.db')
@@ -24,6 +24,6 @@ finally:
 
 class App:
     def __init__(self):
-        
+
 
 aplicacao = App()
