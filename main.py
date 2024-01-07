@@ -33,7 +33,7 @@ class App:
 
     def infoTelas(self, tela, cnpj):
         if tela == "Menu":
-            self.tela = 
+            self.tela = TelaMenu()
             nome_empresa = self.GetNomeEmpresa(cnpj)
             self.tela.nomeEmpresa = nome_empresa
 
@@ -53,6 +53,14 @@ class App:
         finally:
             cursor.close()
             farmacia.close()
+
+
+    def login(self):
+        self.tela.window.destroy()
+        
+        self.tela = TelaLogin()
+
+        
 
 
 
