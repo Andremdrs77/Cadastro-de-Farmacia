@@ -196,14 +196,26 @@ class App:
 
     def dadosCliente(self):
         def MudarInfo():
-            InfoCliente = mostrarInformacoesCliente(cpf=self.janela.entry_1.get())
-            self.janela.canvas.itemconfig(self.janela.nomeTxt, text=f"Nome: {InfoCliente[0]}")
-            self.janela.canvas.itemconfig(self.janela.senhaTxt, text=f"Senha: {InfoCliente[1]}")
-            self.janela.canvas.itemconfig(self.janela.emailTxt, text=f"Email: {InfoCliente[2]}")
-            self.janela.canvas.itemconfig(self.janela.cepTXT, text=f"CEP: {InfoCliente[3]}")
-            self.janela.canvas.itemconfig(self.janela.telefoneTxt, text=f"Telefone: {InfoCliente[5]}")
-            self.janela.canvas.itemconfig(self.janela.datanascimentoTxt, text=f"Data de nascimento: {InfoCliente[6]}")
-            self.janela.canvas.itemconfig(self.janela.enderecoTxt, text=f"Endereço: {InfoCliente[7]}")
+            try:
+                InfoCliente = mostrarInformacoesCliente(cpf=self.janela.entry_1.get())
+                if InfoCliente:
+                    self.janela.canvas.itemconfig(self.janela.nomeTxt, text=f"Nome: {InfoCliente[0]}")
+                    self.janela.canvas.itemconfig(self.janela.senhaTxt, text=f"Senha: {InfoCliente[1]}")
+                    self.janela.canvas.itemconfig(self.janela.emailTxt, text=f"Email: {InfoCliente[2]}")
+                    self.janela.canvas.itemconfig(self.janela.cepTXT, text=f"CEP: {InfoCliente[3]}")
+                    self.janela.canvas.itemconfig(self.janela.telefoneTxt, text=f"Telefone: {InfoCliente[5]}")
+                    self.janela.canvas.itemconfig(self.janela.datanascimentoTxt, text=f"Data de nascimento: {InfoCliente[6]}")
+                    self.janela.canvas.itemconfig(self.janela.enderecoTxt, text=f"Endereço: {InfoCliente[7]}")
+                else:
+                    self.janela.canvas.itemconfig(self.janela.nomeTxt, text="Nome: ")
+                    self.janela.canvas.itemconfig(self.janela.senhaTxt, text="Senha: ")
+                    self.janela.canvas.itemconfig(self.janela.emailTxt, text="Email: ")
+                    self.janela.canvas.itemconfig(self.janela.cepTXT, text="CEP: ")
+                    self.janela.canvas.itemconfig(self.janela.telefoneTxt, text="Telefone: ")
+                    self.janela.canvas.itemconfig(self.janela.datanascimentoTxt, text="Data de nascimento: ")
+                    self.janela.canvas.itemconfig(self.janela.enderecoTxt, text="Endereço: ")
+            except Exception as e:
+                print(f"Erro ao obter informações do cliente: {e}")
 
         if isinstance(self.janela, TelaDadosCliente):
             self.janela.button_1['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
@@ -218,11 +230,20 @@ class App:
 
     def dadosVendedor(self):
         def MudarInfo():
-            InfoVendedor = mostrarInformacoesVendedor(cpf=self.janela.entry_1.get())
-            self.janela.canvas.itemconfig(self.janela.nomeTxt, text=f"Nome: {InfoVendedor[0]}")
-            self.janela.canvas.itemconfig(self.janela.senhaTxt, text=f"Senha: {InfoVendedor[1]}")
-            self.janela.canvas.itemconfig(self.janela.empresaTxt, text=f"Empresa: {InfoVendedor[2]}")
-            self.janela.canvas.itemconfig(self.janela.emailTxt, text=f"Email: {InfoVendedor[4]}")
+            try:
+                InfoVendedor = mostrarInformacoesVendedor(cpf=self.janela.entry_1.get())
+                if InfoVendedor:
+                    self.janela.canvas.itemconfig(self.janela.nomeTxt, text=f"Nome: {InfoVendedor[0]}")
+                    self.janela.canvas.itemconfig(self.janela.senhaTxt, text=f"Senha: {InfoVendedor[1]}")
+                    self.janela.canvas.itemconfig(self.janela.empresaTxt, text=f"Empresa: {InfoVendedor[2]}")
+                    self.janela.canvas.itemconfig(self.janela.emailTxt, text=f"Email: {InfoVendedor[4]}")
+                else:
+                    self.janela.canvas.itemconfig(self.janela.nomeTxt, text="Nome: ")
+                    self.janela.canvas.itemconfig(self.janela.senhaTxt, text="Senha: ")
+                    self.janela.canvas.itemconfig(self.janela.empresaTxt, text="Empresa: ")
+                    self.janela.canvas.itemconfig(self.janela.emailTxt, text="Email: ")
+            except Exception as e:
+                print(f"Erro ao obter informações do vendedor: {e}")
 
         if isinstance(self.janela, TelaDadosVendedor):
             self.janela.button_1['command'] = lambda: deletarVendedor(cpf=self.janela.entry_1.get())
@@ -238,12 +259,22 @@ class App:
 
     def dadosRemedio(self):
         def MudarInfo():
-            InfoRemedio = mostrarInformacoesRemedio(lote=self.janela.entry_1.get())
-            self.janela.canvas.itemconfig(self.janela.nomeTxt, text=f"Nome: {InfoRemedio[0]}")
-            self.janela.canvas.itemconfig(self.janela.empresaTxt, text=f"Empresa: {InfoRemedio[1]}")
-            self.janela.canvas.itemconfig(self.janela.tipoTxt, text=f"Tipo: {InfoRemedio[3]}")
-            self.janela.canvas.itemconfig(self.janela.precoTxt, text=f"Preço: {InfoRemedio[4]}")
-            self.janela.canvas.itemconfig(self.janela.marcaTxt, text=f"Marca: {InfoRemedio[5]}")
+            try:
+                InfoRemedio = mostrarInformacoesRemedio(lote=self.janela.entry_1.get())
+                if InfoRemedio:
+                    self.janela.canvas.itemconfig(self.janela.nomeTxt, text=f"Nome: {InfoRemedio[0]}")
+                    self.janela.canvas.itemconfig(self.janela.empresaTxt, text=f"Empresa: {InfoRemedio[1]}")
+                    self.janela.canvas.itemconfig(self.janela.tipoTxt, text=f"Tipo: {InfoRemedio[3]}")
+                    self.janela.canvas.itemconfig(self.janela.precoTxt, text=f"Preço: {InfoRemedio[4]}")
+                    self.janela.canvas.itemconfig(self.janela.marcaTxt, text=f"Marca: {InfoRemedio[5]}")
+                else:
+                    self.janela.canvas.itemconfig(self.janela.nomeTxt, text="Nome: ")
+                    self.janela.canvas.itemconfig(self.janela.empresaTxt, text="Empresa: ")
+                    self.janela.canvas.itemconfig(self.janela.tipoTxt, text="Tipo: ")
+                    self.janela.canvas.itemconfig(self.janela.precoTxt, text="Preço: ")
+                    self.janela.canvas.itemconfig(self.janela.marcaTxt, text="Marca: ")
+            except Exception as e:
+                print(f"Erro ao obter informações do remédio: {e}")
 
         if isinstance(self.janela, TelaDadosRemedio):
             self.janela.button_1['command'] = lambda: deletarRemedio(lote=self.janela.entry_1.get())

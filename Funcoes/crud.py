@@ -311,10 +311,8 @@ def verificarEmpresaSenha(cnpj, senha):
         empresa = cursor.fetchone()
 
         if empresa:
-            # A empresa existe e a senha está correta
             return True
         else:
-            # A empresa não existe ou a senha está incorreta
             return False
 
     except sqlite3.Error as e:
