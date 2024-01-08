@@ -197,9 +197,9 @@ class TelaCadastrarVendedor:
         self.entry_image_5 = PhotoImage(
             file=relative_to_assets("entry_5.png"))
         self.entry_bg_5 = self.canvas.create_image(
-            479.0,
-            591.5,
-            image=self.entry_image_5
+            690.0,
+            345.0,
+            image=self.entry_image_4
         )
         self.entry_5 = Entry(
             bd=0,
@@ -210,40 +210,11 @@ class TelaCadastrarVendedor:
         )
         self.entry_5.place(
             x=70.0,
-            y=567.0,
-            width=818.0,
-            height=47.0
-        )
-
-        self.entry_image_6 = PhotoImage(
-            file=relative_to_assets("entry_6.png"))
-        self.entry_bg_6 = self.canvas.create_image(
-            479.0,
-            426.5,
-            image=self.entry_image_6
-        )
-        self.entry_6 = Entry(
-            bd=0,
-            bg="#EEF4EC",
-            fg="#000716",
-            highlightthickness=0,
-            font=("Arial", 15),
-        )
-        self.entry_6.place(
-            x=70.0,
             y=402.0,
             width=818.0,
             height=47.0
         )
 
-        self.canvas.create_text(
-            70.0,
-            533.0,
-            anchor="nw",
-            text="Confirmar senha ",
-            fill="#FFFFFF",
-            font=("Inter SemiBold", 32 * -1)
-        )
 
         self.canvas.create_text(
             70.0,
@@ -301,7 +272,7 @@ class TelaCadastrarVendedor:
         )
         self.button_4.place(
             x=374.0,
-            y=637.0,
+            y=597.0,
             width=213.0,
             height=63.0
         )

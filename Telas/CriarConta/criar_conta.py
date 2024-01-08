@@ -69,27 +69,6 @@ class TelaCriarConta:
             height=19.0
         )
 
-        self.entry_image_1 = PhotoImage(
-            file=relative_to_assets("entry_1.png"))
-        self.entry_bg_1 = self.canvas.create_image(
-            665.0,
-            564.5,
-            image=self.entry_image_1
-        )
-        self.entry_1 = Entry(
-            bd=0,
-            bg="#EEF4EC",
-            fg="#000716",
-            highlightthickness=0,
-            font=("Arial", 25),
-        )
-        self.entry_1.place(
-            x=256.0,
-            y=540.0,
-            width=818.0,
-            height=47.0
-        )
-
         self.entry_image_2 = PhotoImage(
             file=relative_to_assets("entry_2.png"))
         self.entry_bg_2 = self.canvas.create_image(
@@ -206,15 +185,6 @@ class TelaCriarConta:
 
         self.canvas.create_text(
             256.0,
-            512.0,
-            anchor="nw",
-            text="Confirmar senha ",
-            fill="#EEF4EC",
-            font=("Inter SemiBold", 25 * -1)
-        )
-
-        self.canvas.create_text(
-            256.0,
             359.0,
             anchor="nw",
             text="E-mail",
@@ -274,3 +244,4 @@ class TelaCriarConta:
             font=("Inter Bold", 40 * -1)
         )
         self.window.resizable(False, False)
+        self.window.mainloop()
