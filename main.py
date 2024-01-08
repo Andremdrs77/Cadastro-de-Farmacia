@@ -78,7 +78,7 @@ class App:
     def criarConta(self):
         if isinstance(self.janela, TelaCriarConta):
             self.janela.button_1['command'] = lambda: self.login()
-            self.janela.button_2['command'] = lambda: self.criarEmpresa(email=self.janela.entry_2.get(),
+            self.janela.button_2['command'] = lambda: criarEmpresa(email=self.janela.entry_2.get(),
                                                                         senha=self.janela.entry_3.get(),
                                                                         cnpj=self.janela.entry_4.get(),
                                                                         cep=self.janela.entry_5.get(),
@@ -87,7 +87,7 @@ class App:
             self.janela.window.destroy()
             self.janela = TelaCriarConta()
             self.janela.button_1['command'] = lambda: self.login()
-            self.janela.button_2['command'] = lambda: self.criarEmpresa(email=self.janela.entry_2.get(),
+            self.janela.button_2['command'] = lambda: criarEmpresa(email=self.janela.entry_2.get(),
                                                                         senha=self.janela.entry_3.get(),
                                                                         cnpj=self.janela.entry_4.get(),
                                                                         cep=self.janela.entry_5.get(),

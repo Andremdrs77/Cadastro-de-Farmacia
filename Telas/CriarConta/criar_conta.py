@@ -254,4 +254,3 @@ class TelaCriarConta:
             font=("Inter Bold", 40 * -1)
         )
         self.window.resizable(False, False)
-        self.window.mainloop()
