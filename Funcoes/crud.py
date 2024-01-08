@@ -76,7 +76,7 @@ def criarRemedio(nome, empresa, lote, tipo, preco, marca):
         farmacia.close()
 
 
-def criarVendedor(nome, senha, empresa, cpf, email, cep, telefone, data, endereco, cnpj):
+def criarVendedor(nome, senha, empresa, cpf, email):
     try:
         farmacia = sqlite3.connect('farmacia_dados.db')
         cursor = farmacia.cursor()
@@ -87,10 +87,6 @@ def criarVendedor(nome, senha, empresa, cpf, email, cep, telefone, data, enderec
                             ven_empresa TEXT,
                             ven_cpf TEXT,
                             ven_email TEXT,
-                            ven_cep TEXT,
-                            ven_telefone TEXT,
-                            ven_data TEXT,
-                            ven_endereco TEXT,
                          )''')
 
         cursor.execute('INSERT INTO vendedor (ven_nome, ven_senha, ven_empresa, ven_cpf, ven_email, ven_cep, ven_telefone, ven_data, ven_endereco) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', (nome, senha, empresa, cpf, email, cep, telefone, data, endereco, cnpj))
