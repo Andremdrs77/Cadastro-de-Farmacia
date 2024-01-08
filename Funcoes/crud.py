@@ -76,7 +76,7 @@ def criarRemedio(nome, empresa, lote, tipo, preco, marca):
         farmacia.close()
 
 
-def criarVendedor(nome, senha, empresa, cpf, email):
+def criarVendedor(nome, senha, empresa, cpf, email, cep):
     try:
         farmacia = sqlite3.connect('farmacia_dados.db')
         cursor = farmacia.cursor()
