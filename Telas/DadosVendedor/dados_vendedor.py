@@ -63,7 +63,7 @@ class TelaDadosVendedor:
         self.canvas.create_rectangle(
             119.0,
             407.0,
-            1254.0,
+            700.0,
             450.0,
             fill="#C9CDCA",
             outline="")
@@ -110,6 +110,14 @@ class TelaDadosVendedor:
             fill="#C9CDCA",
             outline="")
 
+        self.canvas.create_rectangle(
+            723.0,
+            407.0,
+            1253.0,
+            451.0,
+            fill="#C9CDCA",
+            outline="")
+        
         self.canvas.create_text(
             131.0,
             304.0,
@@ -136,6 +144,15 @@ class TelaDadosVendedor:
             text="Dados do vendedor",
             fill="#FFFFFF",
             font=("Inter Bold", 64 * -1)
+        )
+
+        self.canvas.create_text(
+            734.0,
+            416.0,
+            anchor="nw",
+            text="Dados do vendedor",
+            fill="#000000",
+            font=("Inter Bold", 23 * -1)
         )
 
         self.button_image_2 = PhotoImage(
