@@ -110,6 +110,8 @@ class TelaCadastrarVendedor:
             font=("Inter SemiBold", 14 * -1)
         )
 
+        # SENHA
+
         self.entry_image_1 = PhotoImage(
             file=relative_to_assets("entry_1.png"))
         self.entry_bg_1 = self.canvas.create_image(
@@ -130,6 +132,8 @@ class TelaCadastrarVendedor:
             width=818.0,
             height=48.0
         )
+
+        # NOME
 
         self.entry_image_2 = PhotoImage(
             file=relative_to_assets("entry_2.png"))
@@ -152,6 +156,8 @@ class TelaCadastrarVendedor:
             height=47.0
         )
 
+        # CPF
+
         self.entry_image_3 = PhotoImage(
             file=relative_to_assets("entry_3.png"))
         self.entry_bg_3 = self.canvas.create_image(
@@ -173,6 +179,8 @@ class TelaCadastrarVendedor:
             height=48.0
         )
 
+        # CEP
+
         self.entry_image_4 = PhotoImage(
             file=relative_to_assets("entry_4.png"))
         self.entry_bg_4 = self.canvas.create_image(
@@ -193,6 +201,8 @@ class TelaCadastrarVendedor:
             width=396.0,
             height=48.0
         )
+
+        # EMAIL
 
         self.entry_image_5 = PhotoImage(
             file=relative_to_assets("entry_5.png"))

@@ -69,6 +69,8 @@ class TelaCriarConta:
             height=19.0
         )
 
+        # EMAIL
+
         self.entry_image_2 = PhotoImage(
             file=relative_to_assets("entry_2.png"))
         self.entry_bg_2 = self.canvas.create_image(
@@ -89,6 +91,8 @@ class TelaCriarConta:
             width=818.0,
             height=47.0
         )
+
+        # SENHA
 
         self.entry_image_3 = PhotoImage(
             file=relative_to_assets("entry_3.png"))
@@ -111,6 +115,8 @@ class TelaCriarConta:
             height=48.0
         )
 
+        # CNPJ
+
         self.entry_image_4 = PhotoImage(
             file=relative_to_assets("entry_4.png"))
         self.entry_bg_4 = self.canvas.create_image(
@@ -132,6 +138,8 @@ class TelaCriarConta:
             height=48.0
         )
 
+        # CEP
+
         self.entry_image_5 = PhotoImage(
             file=relative_to_assets("entry_5.png"))
         self.entry_bg_5 = self.canvas.create_image(
@@ -152,6 +160,8 @@ class TelaCriarConta:
             width=396.0,
             height=48.0
         )
+
+        # RAZÃO SOCIAL
 
         self.entry_image_6 = PhotoImage(
             file=relative_to_assets("entry_6.png"))
@@ -244,4 +254,3 @@ class TelaCriarConta:
             font=("Inter Bold", 40 * -1)
         )
         self.window.resizable(False, False)
-        self.window.mainloop()
