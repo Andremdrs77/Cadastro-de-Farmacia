@@ -270,4 +270,3 @@ class TelaDadosCliente:
             height=59.0
         )
         self.window.resizable(False, False)
-        self.window.mainloop()
