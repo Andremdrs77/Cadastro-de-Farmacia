@@ -107,7 +107,7 @@ def deletarCliente(cpf):
         farmacia = sqlite3.connect('farmacia_dados.db')
         cursor = farmacia.cursor()
 
-        cursor.execute('''DELETE FROM cliente WHERE cli_cpf = ?''', (str(cpf)))
+        cursor.execute('''DELETE FROM cliente WHERE cli_cpf = ?''', (cpf,))
 
         farmacia.commit()
 
@@ -122,7 +122,7 @@ def deletarVendedor(cpf):
         farmacia = sqlite3.connect('farmacia_dados.db')
         cursor = farmacia.cursor()
 
-        cursor.execute('''DELETE FROM vendedor WHERE ven_cpf = ?''', (str(cpf)))
+        cursor.execute('''DELETE FROM vendedor WHERE ven_cpf = ?''', (cpf,))
 
         farmacia.commit()
 
@@ -137,7 +137,7 @@ def deletarRemedio(lote):
         farmacia = sqlite3.connect('farmacia_dados.db')
         cursor = farmacia.cursor()
 
-        cursor.execute('''DELETE FROM remedio WHERE rem_lote = ?''', (str(lote)))
+        cursor.execute('''DELETE FROM remedio WHERE rem_lote = ?''', (lote,))
 
         farmacia.commit()
 
@@ -152,12 +152,15 @@ def mostrarVendedores():
         farmacia = sqlite3.connect('farmacia_dados.db')
         cursor = farmacia.cursor()
 
-        print('Tabelas:')
+        cursor.execute('''SELECT ven_nome FROM vendedor''')
 
-        for tabela in cursor.fetchall():
-            print("%s" % (tabela))
+        vendedores = [row[0] for row in cursor.fetchall()]
 
-        farmacia.commit()
+        print('Nomes dos Vendedores:')
+        for nome in vendedores:
+            print(nome)
+
+        print(vendedores)
 
     except sqlite3.Error as e:
         print(f"Erro ao mostrar vendedores: {e}")
@@ -165,4 +168,27 @@ def mostrarVendedores():
         cursor.close()
         farmacia.close()
 
-mostrarVendedores()
+def mostrarPrecos():
+    try:
+        farmacia = sqlite3.connect('farmacia_dados.db')
+        cursor = farmacia.cursor()
+
+        cursor.execute('''SELECT rem_nome, rem_preco FROM remedio''')
+
+        dados_remedios = {row[0]: row[1] for row in cursor.fetchall()}
+
+        print('Dicionário de Preços dos Medicamentos:')
+        nomes = list(dados_remedios.keys())
+        precos = list(dados_remedios.values())
+
+        i = 0
+        while i < len(nomes):
+            print(f"{nomes[i]}: {precos[i]}")
+            i += 1
+
+    except sqlite3.Error as e:
+        print(f"Erro ao mostrar preços: {e}")
+    finally:
+        cursor.close()
+        farmacia.close()
+
