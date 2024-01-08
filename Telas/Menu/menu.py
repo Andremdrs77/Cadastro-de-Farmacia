@@ -171,4 +171,3 @@ class TelaMenu:
         self.RemedioLabel.pack()
 
         self.window.resizable(False, False)
-        self.window.mainloop()

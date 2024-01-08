@@ -23,6 +23,8 @@ class App:
         self.tela.button_1.configure(command=lambda: self.infoTelas(tela="Menu", cnpj=self.tela.entry_1.get()))
         self.tela.button_2.configure(command=lambda: self.infoTelas(tela="criarConta"))
 
+        self.tela.window.mainloop()
+
     def infoTelas(self, tela, cnpj):
         if tela == "Menu":
             self.tela = TelaMenu(cnpj)
@@ -31,24 +33,22 @@ class App:
 
         elif tela == "":
             pass
+
         
 
 
     def GetNomeEmpresa(self, cnpj):
         try:
-            farmacia = sqlite3.connect('farmacia_dados.db')
-            cursor = farmacia.cursor()
-            cursor.execute('SELECT emp_nome FROM empresa WHERE emp_cnpj = ?', (cnpj,))
-            result = cursor.fetchone()
-            if result:
-                return result[0]
-            else:
-                return "Empresa não encontrada"
+            with sqlite3.connect('farmacia_dados.db') as farmacia:
+                cursor = farmacia.cursor()
+                cursor.execute('SELECT emp_nome FROM empresa WHERE emp_cnpj = ?', (cnpj,))
+                result = cursor.fetchone()
+                if result:
+                    return result[0]
+                else:
+                    return "Empresa não encontrada"
         except Exception as e:
             print(f"Erro ao obter nome da empresa: {e}")
-        finally:
-            cursor.close()
-            farmacia.close()
 
 
     def login(self):
@@ -68,30 +68,31 @@ class App:
         self.tela.window.destroy()
 
 
-    def cadastrarVendedor(self):
+    def cadastrarVendedor(self, cnpj):
         self.tela.window.destroy()
 
 
-    def cadastrarCliente(self):
+    def cadastrarCliente(self, cnpj):
         self.tela.window.destroy()
 
 
-    def cadastrarRemedio(self):
+    def cadastrarRemedio(self, cnpj):
         self.tela.window.destroy()
 
 
-    def dadosEmpresa(self):
+    def dadosEmpresa(self, cnpj):
         self.tela.window.destroy()
 
 
-    def dadosCliente(self):
+    def dadosCliente(self, cnpj):
         self.tela.window.destroy()
 
 
-    def dadosVendedor(self):
+    def dadosVendedor(self, cnpj):
         self.tela.window.destroy()
 
 
-    def dadosRemedio(self):
+    def dadosRemedio(self, cnpj):
         self.tela.window.destroy()
+
 aplicacao = App()

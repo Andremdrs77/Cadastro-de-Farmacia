@@ -145,7 +145,6 @@ class TelaLogin():
             height=29.0
         )
         self.window.resizable(False, False)
-        self.window.mainloop()
 
     def login(self):
         cnpj = self.entry_1.get()
@@ -157,5 +156,3 @@ class TelaLogin():
         print(senha_bd[0])
         banco.close()
         
-
-tela = TelaLogin()

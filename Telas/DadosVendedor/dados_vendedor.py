@@ -285,6 +285,3 @@ class TelaDadosVendedor:
             font=("Inter", 24 * -1)
         )
         self.window.resizable(False, False)
-        self.window.mainloop()
-
-a = TelaDadosVendedor()

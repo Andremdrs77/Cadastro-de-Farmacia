@@ -422,4 +422,3 @@ class TelaCadastrarCliente:
             height=37.0
         )
         self.window.resizable(False, False)
-        self.window.mainloop()

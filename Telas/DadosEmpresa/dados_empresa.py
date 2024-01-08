@@ -202,7 +202,3 @@ class TelaDadosEmpresa:
             font=("Inter", 23 * -1)
         )
         self.window.resizable(False, False)
-        self.window.mainloop()
-
-a = TelaDadosEmpresa(
-)
