@@ -28,7 +28,7 @@ def criarCliente(nome, senha, email, cep, cpf, telefone, data, endereco, cnpj):
         farmacia.close()
 
 
-def criarEmpresa(nome, senha, cnpj, email):
+def criarEmpresa(nome, senha, cnpj, email, cep):
     try:
         farmacia = sqlite3.connect('farmacia_dados.db')
         cursor = farmacia.cursor()
