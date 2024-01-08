@@ -20,7 +20,14 @@ class App:
         self.janela = TelaLogin()
         self.cnpj_conta = None
 
-        self.janela.button_1['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+        def Logar():
+            cnpj = self.janela.entry_1.get()
+            senha = self.janela.entry_2.get()
+            verificarEmpresa = verificarEmpresaSenha(cnpj, senha)
+            if verificarEmpresa:
+                self.menu(cnpj=cnpj, nome_empresa='')
+
+        self.janela.button_1['command'] = lambda: Logar()
         self.janela.button_2['command'] = lambda: self.criarConta()
 
         self.janela.window.mainloop()
@@ -42,14 +49,21 @@ class App:
 
 
     def login(self):
-        if isinstance(self.login, TelaLogin):
-            self.janela.button_1['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
-            self.janela.button_2['command'] = lambda: self.criarConta()
+        def Logar():
+            cnpj = self.janela.entry_1.get()
+            senha = self.janela.entry_2.get()
+            verificarEmpresa = verificarEmpresaSenha(cnpj, senha)
+            if verificarEmpresa:
+                self.menu(cnpj=cnpj, nome_empresa='')
+
+        if isinstance(self.janela, TelaLogin):
+            self.janela.button_1['command'] = Logar
+            self.janela.button_2['command'] = self.criarConta
         else:
             self.janela.window.destroy()
             self.janela = TelaLogin()
-            self.janela.button_1['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
-            self.janela.button_2['command'] = lambda: self.criarConta()
+            self.janela.button_1['command'] = Logar
+            self.janela.button_2['command'] = self.criarConta
 
 
     def menu(self, cnpj, nome_empresa):

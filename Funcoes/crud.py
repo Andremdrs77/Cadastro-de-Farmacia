@@ -300,3 +300,26 @@ def mostrarInformacoesRemedio(lote):
     finally:
         cursor.close()
         farmacia.close()
+
+
+def verificarEmpresaSenha(cnpj, senha):
+    try:
+        farmacia = sqlite3.connect('farmacia_dados.db')
+        cursor = farmacia.cursor()
+
+        cursor.execute('''SELECT * FROM empresa WHERE emp_cnpj = ? AND emp_senha = ?''', (cnpj, senha))
+        empresa = cursor.fetchone()
+
+        if empresa:
+            # A empresa existe e a senha está correta
+            return True
+        else:
+            # A empresa não existe ou a senha está incorreta
+            return False
+
+    except sqlite3.Error as e:
+        print(f"Erro ao verificar empresa e senha: {e}")
+        return False
+    finally:
+        cursor.close()
+        farmacia.close()
