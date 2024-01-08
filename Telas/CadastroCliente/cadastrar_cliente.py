@@ -233,12 +233,6 @@ class TelaCadastrarCliente:
             highlightthickness=0,
             font=("Arial", 15),
         )
-        self.entry_5.place(
-            x=499.0,
-            y=247.0,
-            width=400.0,
-            height=34.0
-        )
 
         self.entry_image_6 = PhotoImage(
             file=relative_to_assets("entry_6.png"))
@@ -303,7 +297,7 @@ class TelaCadastrarCliente:
         self.entry_image_8 = PhotoImage(
             file=relative_to_assets("entry_8.png"))
         self.entry_bg_8 = self.canvas.create_image(
-            281.0,
+            491.0,
             589.0,
             image=self.entry_image_8
         )
@@ -317,39 +311,10 @@ class TelaCadastrarCliente:
         self.entry_8.place(
             x=81.0,
             y=571.0,
-            width=400.0,
+            width=818.0,
             height=34.0
         )
 
-        self.entry_image_9 = PhotoImage(
-            file=relative_to_assets("entry_9.png"))
-        self.entry_bg_9 = self.canvas.create_image(
-            700.0,
-            589.0,
-            image=self.entry_image_9
-        )
-        self.entry_9 = Entry(
-            bd=0,
-            bg="#EEF4EC",
-            fg="#000716",
-            highlightthickness=0,
-            font=("Arial", 15),
-        )
-        self.entry_9.place(
-            x=499.0,
-            y=571.0,
-            width=402.0,
-            height=34.0
-        )
-
-        self.canvas.create_text(
-            497.0,
-            538.0,
-            anchor="nw",
-            text="Confirmar Senha",
-            fill="#EEF4EC",
-            font=("Inter SemiBold", 30 * -1)
-        )
 
         self.canvas.create_text(
             79.0,
@@ -422,3 +387,6 @@ class TelaCadastrarCliente:
             height=37.0
         )
         self.window.resizable(False, False)
+        self.window.mainloop()
+
+a = TelaCadastrarCliente()
