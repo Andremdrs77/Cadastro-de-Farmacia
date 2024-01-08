@@ -160,7 +160,12 @@ class App:
             self.janela = TelaCadastrarRemedio()
             self.janela.button_1['command'] = lambda: self.cadastrarCliente()
             self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
-            self.janela.button_3['command'] = lambda: self.criarRemedio()
+            self.janela.button_3['command'] = lambda: self.criarRemedio(empresa=self.janela.entry_1.get(),
+                                                                        nome=self.janela.entry_2.get(),
+                                                                        lote=self.janela.entry_3.get(),
+                                                                        preco=self.janela.entry_4.get(),
+                                                                        marca=self.janela.entry_5.get(),
+                                                                        tipo=self.janela.entry_6.get())
             self.janela.button_4['command'] = lambda: self.dadosRemedio()
             self.janela.button_5['command'] = lambda: self.menu(cnpj='', nome_empresa='')
 
