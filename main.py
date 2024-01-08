@@ -21,18 +21,22 @@ class App:
         self.cnpj = None
 
         self.janela.button_1.configure(command=lambda: self.infoTelas(tela="Menu", cnpj=self.janela.entry_1.get()))
-        self.janela.button_2.configure(command=lambda: self.infoTelas(tela="criarConta"))
+        self.janela.button_2.configure(command=lambda: self.infoTelas(tela="CriarConta", cnpj=''))
 
         self.janela.window.mainloop()
         
 
     def infoTelas(self, tela, cnpj):
-        if tela == "Menu":
-            self.janela = self.menu(cnpj)
-            nome_empresa = self.GetNomeEmpresa(cnpj)
-            self.janela.nomeEmpresa = nome_empresa
+        self.cnpj = cnpj
 
-        elif tela == "":
+        if tela == "Login":
+            self.janela = TelaLogin()
+
+        elif tela == "Menu":
+            nome_empresa = self.GetNomeEmpresa(cnpj)
+            self.janela = self.menu(nome_empresa)
+
+        elif tela == "CriarConta":
             pass
 
 
@@ -60,15 +64,23 @@ class App:
         self.janela.button_1.configure(command=lambda: self.infoTelas(tela="Menu", cnpj=self.janela.entry_1.get()))
 
 
-    def menu(self, cnpj):
+    def menu(self, nome_empresa):
         self.janela.window.destroy()
 
         self.janela = TelaMenu()
-
+        self.janela.button_1['command'] = lambda: self.infoTelas(tela="CadastrarVendedor", cnpj=self.cnpj)
+        self.janela.button_2['command'] = lambda: self.infoTelas(tela="ConsultarVendedores", cnpj=self.cnpj)
+        self.janela.button_3['command'] = lambda: self.infoTelas(tela="CadastrarCliente", cnpj=self.cnpj)
+        self.janela.button_4['command'] = lambda: self.infoTelas(tela="ConsultarClientes", cnpj=self.cnpj)
+        self.janela.button_5['command'] = lambda: self.infoTelas(tela="CadastrarRemedio", cnpj=self.cnpj)
+        self.janela.button_6['command'] = lambda: self.infoTelas(tela="ConsultarRemedios", cnpj=self.cnpj)
+        self.janela.button_7['command'] = lambda: self.infoTelas(tela="Login", cnpj=self.cnpj)
+        self.textoEmpresa['text'] = nome_empresa
 
     def criarConta(self):
         self.janela.window.destroy()
 
+        self.janela = TelaCriarConta()
 
     def cadastrarVendedor(self, cnpj):
         self.janela.window.destroy()
@@ -86,15 +98,15 @@ class App:
         self.janela.window.destroy()
 
 
-    def dadosCliente(self, cnpj):
+    def dadosCliente(self):
         self.janela.window.destroy()
 
 
-    def dadosVendedor(self, cnpj):
+    def dadosVendedor(self):
         self.janela.window.destroy()
 
 
-    def dadosRemedio(self, cnpj):
+    def dadosRemedio(self):
         self.janela.window.destroy()
 
 aplicacao = App()
