@@ -89,7 +89,7 @@ def criarVendedor(nome, senha, empresa, cpf, email):
                             ven_email TEXT,
                          )''')
 
-        cursor.execute('INSERT INTO vendedor (ven_nome, ven_senha, ven_empresa, ven_cpf, ven_email, ven_cep, ven_telefone, ven_data, ven_endereco) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', (nome, senha, empresa, cpf, email, cep, telefone, data, endereco, cnpj))
+        cursor.execute('INSERT INTO vendedor (ven_nome, ven_senha, ven_empresa, ven_cpf, ven_email) VALUES (?, ?, ?, ?, ?)', (nome, senha, empresa, cpf, email))
 
         farmacia.commit()
         print("Vendedor adicionado com sucesso!")
@@ -98,6 +98,7 @@ def criarVendedor(nome, senha, empresa, cpf, email):
     finally:
         cursor.close()
         farmacia.close()
+
 
 def deletarCliente(cpf):
     try:
@@ -114,6 +115,7 @@ def deletarCliente(cpf):
         cursor.close()
         farmacia.close()
 
+
 def deletarVendedor(cpf):
     try:
         farmacia = sqlite3.connect('farmacia_dados.db')
@@ -129,6 +131,7 @@ def deletarVendedor(cpf):
         cursor.close()
         farmacia.close()
 
+
 def deletarRemedio(lote):
     try:
         farmacia = sqlite3.connect('farmacia_dados.db')
@@ -143,6 +146,7 @@ def deletarRemedio(lote):
     finally:
         cursor.close()
         farmacia.close()
+
 
 def mostrarVendedores():
     try:
@@ -164,6 +168,7 @@ def mostrarVendedores():
     finally:
         cursor.close()
         farmacia.close()
+
 
 def mostrarPrecos():
     try:
@@ -189,6 +194,7 @@ def mostrarPrecos():
         cursor.close()
         farmacia.close()
 
+
 def fazerBackup(nome_arquivo, dados):
     try:
         with open(nome_arquivo, 'wb') as arquivo:
@@ -196,6 +202,7 @@ def fazerBackup(nome_arquivo, dados):
         print(f"Backup dos dados realizado com sucesso no arquivo: {nome_arquivo}")
     except Exception as e:
         print(f"Erro ao fazer backup dos dados: {str(e)}")
+
 
 def restaurarBackup(nome_arquivo):
     try:
