@@ -26,6 +26,26 @@ class App:
         self.janela.window.mainloop()
         
 
+    def infoTelas(self, tela, cnpj):
+        self.cnpj = cnpj
+
+        # Destruição da instância anterior (se existir)
+        if hasattr(self, 'janela') and self.janela:
+            self.janela.window.destroy()
+
+        # Lógica para criar a nova instância da tela desejada
+        if tela == "Login":
+            self.janela = TelaLogin()
+        elif tela == "Menu":
+            nome_empresa = self.GetNomeEmpresa(cnpj)
+            self.menu(nome_empresa)
+        elif tela == "CriarConta":
+            self.janela = TelaCriarConta()
+
+        # Inicie o loop principal da nova janela (se existir)
+        if hasattr(self.janela, 'window'):
+            self.janela.window.mainloop()
+
     def GetNomeEmpresa(self, cnpj):
         try:
             with sqlite3.connect('farmacia_dados.db') as farmacia:
@@ -40,21 +60,6 @@ class App:
             print(f"Erro ao obter nome da empresa: {e}")
 
 
-    def infoTelas(self, tela, cnpj):
-        self.cnpj = cnpj
-
-        if tela == "Login":
-            self.janela = TelaLogin()
-
-        elif tela == "Menu":
-            nome_empresa = self.GetNomeEmpresa(cnpj)
-            self.janela = self.menu(nome_empresa)
-
-        elif tela == "CriarConta":
-            self.janela = self.criarConta()
-
-
-
     def login(self):
         self.janela.window.destroy()
         
@@ -65,9 +70,40 @@ class App:
 
 
     def menu(self, nome_empresa):
-        self.janela.window.destroy()
+        if isinstance(self.janela, TelaMenu):
+            # Atualizar widgets existentes em vez de criar uma nova instância
+            self.janela.button_1['command'] = lambda: self.infoTelas(tela="CadastrarVendedor", cnpj=self.cnpj)
+            self.janela.button_2['command'] = lambda: self.infoTelas(tela="ConsultarVendedores", cnpj=self.cnpj)
+            self.janela.button_3['command'] = lambda: self.infoTelas(tela="CadastrarCliente", cnpj=self.cnpj)
+            self.janela.button_4['command'] = lambda: self.infoTelas(tela="ConsultarClientes", cnpj=self.cnpj)
+            self.janela.button_5['command'] = lambda: self.infoTelas(tela="CadastrarRemedio", cnpj=self.cnpj)
+            self.janela.button_6['command'] = lambda: self.infoTelas(tela="ConsultarRemedios", cnpj=self.cnpj)
+            self.janela.button_7['command'] = lambda: self.infoTelas(tela="Login", cnpj=self.cnpj)
+            self.janela.textoEmpresa['text'] = nome_empresa
+        else:
+            # Se não for uma instância de TelaMenu, crie uma nova instância
+            self.janela.window.destroy()
+            self.janela = TelaMenu()
+            self.janela.button_1['command'] = lambda: self.infoTelas(tela="CadastrarVendedor", cnpj=self.cnpj)
+            self.janela.button_2['command'] = lambda: self.infoTelas(tela="ConsultarVendedores", cnpj=self.cnpj)
+            self.janela.button_3['command'] = lambda: self.infoTelas(tela="CadastrarCliente", cnpj=self.cnpj)
+            self.janela.button_4['command'] = lambda: self.infoTelas(tela="ConsultarClientes", cnpj=self.cnpj)
+            self.janela.button_5['command'] = lambda: self.infoTelas(tela="CadastrarRemedio", cnpj=self.cnpj)
+            self.janela.button_6['command'] = lambda: self.infoTelas(tela="ConsultarRemedios", cnpj=self.cnpj)
+            self.janela.button_7['command'] = lambda: self.infoTelas(tela="Login", cnpj=self.cnpj)
+            self.janela.textoEmpresa['text'] = nome_empresa
 
-        self.janela = TelaMenu()
+        self.janela.window.mainloop()
+
+    def menu(self, nome_empresa):
+        if isinstance(self.janela, TelaMenu):
+            # Se já for uma instância de TelaMenu, destrua a instância anterior
+            self.janela.window.destroy()
+        else:
+            # Se não for uma instância de TelaMenu, apenas crie uma nova instância
+            self.janela = TelaMenu()
+
+        # Configuração dos widgets da TelaMenu
         self.janela.button_1['command'] = lambda: self.infoTelas(tela="CadastrarVendedor", cnpj=self.cnpj)
         self.janela.button_2['command'] = lambda: self.infoTelas(tela="ConsultarVendedores", cnpj=self.cnpj)
         self.janela.button_3['command'] = lambda: self.infoTelas(tela="CadastrarCliente", cnpj=self.cnpj)
@@ -75,7 +111,10 @@ class App:
         self.janela.button_5['command'] = lambda: self.infoTelas(tela="CadastrarRemedio", cnpj=self.cnpj)
         self.janela.button_6['command'] = lambda: self.infoTelas(tela="ConsultarRemedios", cnpj=self.cnpj)
         self.janela.button_7['command'] = lambda: self.infoTelas(tela="Login", cnpj=self.cnpj)
-        self.textoEmpresa['text'] = nome_empresa
+        self.janela.textoEmpresa['text'] = nome_empresa
+
+        # Inicie o loop principal da nova janela
+        self.janela.window.mainloop()
 
     def criarConta(self):
         self.janela.window.destroy()
@@ -85,43 +124,28 @@ class App:
     def cadastrarVendedor(self, cnpj):
         self.janela.window.destroy()
 
-        self.janela = TelaCadastrarVendedor
-
 
     def cadastrarCliente(self, cnpj):
         self.janela.window.destroy()
-
-        self.janela = TelaCadastrarCliente()
 
 
     def cadastrarRemedio(self, cnpj):
         self.janela.window.destroy()
 
-        self.janela = TelaCadastrarRemedio()
-
 
     def dadosEmpresa(self, cnpj):
         self.janela.window.destroy()
-
-        self.janela = TelaDadosEmpresa()
 
 
     def dadosCliente(self):
         self.janela.window.destroy()
 
-        self.janela = TelaDadosCliente()
-
 
     def dadosVendedor(self):
         self.janela.window.destroy()
 
-        self.janela = TelaDadosVendedor()
-
 
     def dadosRemedio(self):
         self.janela.window.destroy()
-
-        self.janela = TelaDadosRemedio()
-
 
 aplicacao = App()
