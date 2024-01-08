@@ -44,7 +44,7 @@ class App:
         self.cnpj = cnpj
 
         if tela == "Login":
-            self.janela = TelaLogin()
+            self.janela = self.login()
 
         elif tela == "Menu":
             nome_empresa = self.GetNomeEmpresa(cnpj)
@@ -75,12 +75,13 @@ class App:
         self.janela.button_5['command'] = lambda: self.infoTelas(tela="CadastrarRemedio", cnpj=self.cnpj)
         self.janela.button_6['command'] = lambda: self.infoTelas(tela="ConsultarRemedios", cnpj=self.cnpj)
         self.janela.button_7['command'] = lambda: self.infoTelas(tela="Login", cnpj=self.cnpj)
-        self.textoEmpresa['text'] = nome_empresa
+        self.textoEmpresa.configure(text = nome_empresa)
 
     def criarConta(self):
         self.janela.window.destroy()
 
         self.janela = TelaCriarConta()
+
 
     def cadastrarVendedor(self, cnpj):
         self.janela.window.destroy()
