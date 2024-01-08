@@ -52,13 +52,6 @@ class TelaDadosVendedor:
             fill="#C9CDCA",
             outline="")
 
-        self.canvas.create_rectangle(
-            118.0,
-            471.0,
-            700.0,
-            513.0,
-            fill="#C9CDCA",
-            outline="")
 
         self.canvas.create_rectangle(
             118.0,
@@ -69,17 +62,9 @@ class TelaDadosVendedor:
             outline="")
 
         self.canvas.create_rectangle(
-            723.0,
-            407.0,
-            1254.0,
-            451.0,
-            fill="#C9CDCA",
-            outline="")
-
-        self.canvas.create_rectangle(
             119.0,
             407.0,
-            700.0,
+            1254.0,
             450.0,
             fill="#C9CDCA",
             outline="")
@@ -95,7 +80,7 @@ class TelaDadosVendedor:
         )
         self.button_1.place(
             x=529.0,
-            y=655.0,
+            y=500.0,
             width=312.0,
             height=59.0
         )
@@ -135,14 +120,6 @@ class TelaDadosVendedor:
             font=("Inter", 24 * -1)
         )
 
-        self.canvas.create_text(
-            126.0,
-            479.0,
-            anchor="nw",
-            text="CEP:",
-            fill="#000000",
-            font=("Inter", 24 * -1)
-        )
 
         self.canvas.create_text(
             118.0,
@@ -179,48 +156,6 @@ class TelaDadosVendedor:
             height=37.0
         )
 
-        self.canvas.create_text(
-            734.0,
-            416.0,
-            anchor="nw",
-            text="Telefone:",
-            fill="#000000",
-            font=("Inter", 24 * -1)
-        )
-
-        self.canvas.create_rectangle(
-            723.0,
-            471.0,
-            1254.0,
-            513.0,
-            fill="#C9CDCA",
-            outline="")
-
-        self.canvas.create_text(
-            732.0,
-            479.0,
-            anchor="nw",
-            text="Data de Nascimento:",
-            fill="#000000",
-            font=("Inter", 24 * -1)
-        )
-
-        self.canvas.create_rectangle(
-            118.0,
-            536.0,
-            1254.0,
-            573.0,
-            fill="#C9CDCA",
-            outline="")
-
-        self.canvas.create_text(
-            131.0,
-            540.0,
-            anchor="nw",
-            text="Endereço:",
-            fill="#000000",
-            font=("Inter", 24 * -1)
-        )
 
         self.canvas.create_text(
             129.0,
@@ -285,3 +220,5 @@ class TelaDadosVendedor:
             font=("Inter", 24 * -1)
         )
         self.window.resizable(False, False)
+        self.window.mainloop()
+a = TelaDadosVendedor()

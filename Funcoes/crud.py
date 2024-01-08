@@ -15,10 +15,9 @@ def criarCliente(nome, senha, email, cep, cpf, telefone, data, endereco, cnpj):
                             cli_telefone TEXT,
                             cli_data TEXT,
                             cli_endereco TEXT,
-                            cli_cnpj TEXT
                          )''')
 
-        cursor.execute('INSERT INTO cliente (cli_nome, cli_senha, cli_email, cli_cep, cli_cpf, cli_telefone, cli_data, cli_endereco, cli_cnpj) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', (nome, senha, email, cep, cpf, telefone, data, endereco, cnpj))
+        cursor.execute('INSERT INTO cliente (cli_nome, cli_senha, cli_email, cli_cep, cli_cpf, cli_telefone, cli_data, cli_endereco) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', (nome, senha, email, cep, cpf, telefone, data, endereco))
 
         farmacia.commit()
 
@@ -92,10 +91,9 @@ def criarVendedor(nome, senha, empresa, cpf, email, cep, telefone, data, enderec
                             ven_telefone TEXT,
                             ven_data TEXT,
                             ven_endereco TEXT,
-                            ven_cnpj TEXT
                          )''')
 
-        cursor.execute('INSERT INTO vendedor (ven_nome, ven_senha, ven_empresa, ven_cpf, ven_email, ven_cep, ven_telefone, ven_data, ven_endereco, ven_cnpj) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', (nome, senha, empresa, cpf, email, cep, telefone, data, endereco, cnpj))
+        cursor.execute('INSERT INTO vendedor (ven_nome, ven_senha, ven_empresa, ven_cpf, ven_email, ven_cep, ven_telefone, ven_data, ven_endereco) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', (nome, senha, empresa, cpf, email, cep, telefone, data, endereco, cnpj))
 
         farmacia.commit()
         print("Vendedor adicionado com sucesso!")
