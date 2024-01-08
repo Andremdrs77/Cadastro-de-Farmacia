@@ -87,9 +87,10 @@ def criarVendedor(nome, senha, empresa, cpf, email):
                             ven_empresa TEXT,
                             ven_cpf TEXT,
                             ven_email TEXT,
+                            ven_cep TEXT
                          )''')
 
-        cursor.execute('INSERT INTO vendedor (ven_nome, ven_senha, ven_empresa, ven_cpf, ven_email) VALUES (?, ?, ?, ?, ?)', (nome, senha, empresa, cpf, email))
+        cursor.execute('INSERT INTO vendedor (ven_nome, ven_senha, ven_empresa, ven_cpf, ven_email, ven_cep) VALUES (?, ?, ?, ?, ?, ?)', (nome, senha, empresa, cpf, email, cep))
 
         farmacia.commit()
         print("Vendedor adicionado com sucesso!")

@@ -94,9 +94,7 @@ class App:
             self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
             self.janela.button_4['command'] = lambda: self.criarVendedor(nome=self.janela.entry_1.get(),
                                                                         cpf=self.janela.entry_2.get(),
-                                                                        cep=self.janela.entry_3.get(),
                                                                         email=self.janela.entry_4.get(),
-                                                                        telefone=self.janela.entry_5.get(),
                                                                         data=self.janela.entry_6.get(),
                                                                         endereco=self.janela.entry_7.get(),
                                                                         senha=self.janela.entry_8.get())
