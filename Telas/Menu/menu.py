@@ -38,10 +38,10 @@ class TelaMenu:
 
         self.canvas.place(x = 0, y = 0)
         self.textoEmpresa = self.canvas.create_text(
-            376.0,
+            420.0,
             100.0,
             anchor="nw",
-            text="Empresa",
+            text="Bem-Vindo!",
             fill="#16453F",
             font=("Inter Bold", 80 * -1)
         )

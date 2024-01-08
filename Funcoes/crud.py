@@ -1,7 +1,7 @@
 import sqlite3
 import pickle
 
-def criarCliente(nome, senha, email, cep, cpf, telefone, data, endereco, cnpj):
+def criarCliente(nome, senha, email, cep, cpf, telefone, data, endereco):
     try:
         farmacia = sqlite3.connect('farmacia_dados.db')
         cursor = farmacia.cursor()
@@ -14,7 +14,7 @@ def criarCliente(nome, senha, email, cep, cpf, telefone, data, endereco, cnpj):
                             cli_cpf TEXT,
                             cli_telefone TEXT,
                             cli_data TEXT,
-                            cli_endereco TEXT,
+                            cli_endereco TEXT
                          )''')
 
         cursor.execute('INSERT INTO cliente (cli_nome, cli_senha, cli_email, cli_cep, cli_cpf, cli_telefone, cli_data, cli_endereco) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', (nome, senha, email, cep, cpf, telefone, data, endereco))
@@ -26,7 +26,7 @@ def criarCliente(nome, senha, email, cep, cpf, telefone, data, endereco, cnpj):
     finally:
         cursor.close()
         farmacia.close()
-
+    
 
 def criarEmpresa(nome, senha, cnpj, email, cep):
     try:

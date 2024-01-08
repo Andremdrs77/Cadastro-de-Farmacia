@@ -104,7 +104,8 @@ class App:
                                                                         cpf=self.janela.entry_3.get(),
                                                                         cep=self.janela.entry_4.get(),
                                                                         email=self.janela.entry_5.get(),
-                                                                        senha=self.janela.entry_1.get())
+                                                                        senha=self.janela.entry_1.get(),
+                                                                        empresa=self.GetNomeEmpresa(self.cnpj_conta))
             self.janela.button_5['command'] = lambda: self.menu(cnpj='', nome_empresa='')
         else:
             self.janela.window.destroy()
@@ -116,7 +117,8 @@ class App:
                                                                         cpf=self.janela.entry_3.get(),
                                                                         cep=self.janela.entry_4.get(),
                                                                         email=self.janela.entry_5.get(),
-                                                                        senha=self.janela.entry_1.get())
+                                                                        senha=self.janela.entry_1.get(),
+                                                                        empresa=self.GetNomeEmpresa(self.cnpj_conta))
             self.janela.button_5['command'] = lambda: self.menu(cnpj='', nome_empresa='')
 
 
