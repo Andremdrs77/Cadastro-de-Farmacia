@@ -24,7 +24,8 @@ class App:
         self.tela.button_2.configure(command=lambda: self.infoTelas(tela="criarConta"))
 
         self.tela.window.mainloop()
-
+        
+        
     def infoTelas(self, tela, cnpj):
         if tela == "Menu":
             self.tela = self.menu(cnpj)
@@ -34,7 +35,6 @@ class App:
         elif tela == "":
             pass
 
-        
 
 
     def GetNomeEmpresa(self, cnpj):
@@ -64,6 +64,7 @@ class App:
         self.tela.window.destroy()
 
         self.tela = TelaMenu()
+
 
     def criarConta(self):
         self.tela.window.destroy()
