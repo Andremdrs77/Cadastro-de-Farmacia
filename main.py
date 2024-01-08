@@ -18,7 +18,7 @@ from Funcoes .crud import *
 class App:
     def __init__(self):
         self.janela = TelaLogin()
-        self.cnpj = None
+        self.cnpj_conta = None
 
         self.janela.button_1.configure(command=lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa=''))
         self.janela.button_2.configure(command=lambda: self.criarConta())
@@ -41,12 +41,14 @@ class App:
         #     print(f"Erro ao obter nome da empresa: {e}")
 
     def login(self):
-        self.janela.window.destroy()
-        
-        self.janela = TelaLogin()
-        self.cnpj = None
-
-        self.janela.button_1.configure(command=lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa=''))
+        if isinstance(self.login, TelaLogin):
+            self.janela.button_1['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+            self.janela.button_2['command'] = lambda: self.criarConta()
+        else:
+            self.janela.window.destroy()
+            self.janela = TelaLogin()
+            self.janela.button_1['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+            self.janela.button_2['command'] = lambda: self.criarConta()
 
 
     def menu(self, cnpj, nome_empresa):
@@ -70,49 +72,93 @@ class App:
             self.janela.button_6['command'] = lambda: self.dadosRemedio()
             self.janela.button_7['command'] = lambda: self.login()
 
-        self.janela.window.mainloop()
-
 
     def criarConta(self):
-        self.janela.window.destroy()
+        if isinstance(self.janela, TelaCriarConta):
+            self.janela.button_1['command'] = lambda: self.login()
+            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+        else:
+            self.janela.window.destroy()
+            self.janela = TelaCriarConta()
+            self.janela.button_1['command'] = lambda: self.login()
+            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
 
-        self.janela = TelaCriarConta()
 
 
     def cadastrarVendedor(self):
-        self.janela.window.destroy()
-
-        self.janela = TelaCadastrarVendedor()
+        if isinstance(self.janela, TelaCadastrarVendedor):
+            self.janela.button_1['command'] = lambda: self.cadastrarCliente()
+            self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
+            self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
+            self.janela.button_4['command'] = lambda: self.dadosVendedor()
+            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+        else:
+            self.janela.window.destroy()
+            self.janela = TelaCadastrarVendedor()
+            self.janela.button_1['command'] = lambda: self.cadastrarCliente()
+            self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
+            self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
+            self.janela.button_4['command'] = lambda: self.dadosVendedor()
+            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
 
 
     def cadastrarCliente(self):
-        self.janela.window.destroy()
-
-        self.janela = TelaCadastrarCliente()
+        if isinstance(self.janela, TelaCadastrarCliente):
+            self.janela.button_1['command'] = lambda: self.cadastrarCliente()
+            self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
+            self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
+            self.janela.button_4['command'] = lambda: self.dadosCliente()
+            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+        else:
+            self.janela.window.destroy()
+            self.janela = TelaCadastrarCliente()
+            self.janela.button_1['command'] = lambda: self.cadastrarCliente()
+            self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
+            self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
+            self.janela.button_4['command'] = lambda: self.dadosCliente()
+            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
 
 
     def cadastrarRemedio(self):
-        self.janela.window.destroy()
-
-        self.janela = TelaCadastrarRemedio()
-
+        if isinstance(self.janela, TelaCadastrarRemedio):
+            self.janela.button_1['command'] = lambda: self.cadastrarCliente()
+            self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
+            self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
+            self.janela.button_4['command'] = lambda: self.dadosRemedio()
+            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+        else:
+            self.janela.window.destroy()
+            self.janela = TelaCadastrarRemedio()
+            self.janela.button_1['command'] = lambda: self.cadastrarCliente()
+            self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
+            self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
+            self.janela.button_4['command'] = lambda: self.dadosRemedio()
+            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
 
     def dadosCliente(self):
-        self.janela.window.destroy()
-
-        self.janela = TelaDadosCliente()
+        if isinstance(self.janela, TelaDadosCliente):
+            self.janela.button_1['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+        else:
+            self.janela.window.destroy()
+            self.janela = TelaDadosCliente()
+            self.janela.button_1['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
 
 
     def dadosVendedor(self):
-        self.janela.window.destroy()
-
-        self.janela = TelaDadosVendedor()
+        if isinstance(self.janela, TelaDadosVendedor):
+            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+        else:
+            self.janela.window.destroy()
+            self.janela = TelaDadosVendedor()
+            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
 
 
     def dadosRemedio(self):
-        self.janela.window.destroy()
-
-        self.janela = TelaDadosRemedio()
-
+        if isinstance(self.janela, TelaDadosRemedio):
+            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+        else:
+            self.janela.window.destroy()
+            self.janela = TelaDadosRemedio()
+            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
 
 aplicacao = App()
