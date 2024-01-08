@@ -135,6 +135,7 @@ class App:
             self.janela.button_4['command'] = lambda: self.dadosRemedio()
             self.janela.button_5['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
 
+
     def dadosCliente(self):
         if isinstance(self.janela, TelaDadosCliente):
             self.janela.button_1['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
