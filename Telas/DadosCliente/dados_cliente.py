@@ -164,7 +164,7 @@ class TelaDadosCliente:
             fill="#C9CDCA",
             outline="")
 
-        self.canvas.create_text(
+        self.telefoneTxt = self.canvas.create_text(
             733.0,
             358.0,
             anchor="nw",
@@ -182,7 +182,7 @@ class TelaDadosCliente:
             font=("Inter Bold", 64 * -1)
         )
 
-        self.canvas.create_text(
+        self.nomeTxt =self.canvas.create_text(
             132.0,
             245.0,
             anchor="nw",
@@ -191,7 +191,7 @@ class TelaDadosCliente:
             font=("Inter", 24 * -1)
         )
 
-        self.canvas.create_text(
+        self.cepTXT = self.canvas.create_text(
             125.0,
             421.0,
             anchor="nw",
@@ -209,7 +209,7 @@ class TelaDadosCliente:
             font=("Inter", 32 * -1)
         )
 
-        self.canvas.create_text(
+        self.senhaTxt = self.canvas.create_text(
             130.0,
             299.0,
             anchor="nw",
@@ -218,7 +218,7 @@ class TelaDadosCliente:
             font=("Inter", 24 * -1)
         )
 
-        self.canvas.create_text(
+        self.datanascimentoTxt = self.canvas.create_text(
             731.0,
             421.0,
             anchor="nw",
@@ -227,7 +227,7 @@ class TelaDadosCliente:
             font=("Inter", 24 * -1)
         )
 
-        self.canvas.create_text(
+        self.cpfTxt = self.canvas.create_text(
             735.0,
             299.0,
             anchor="nw",
@@ -236,7 +236,7 @@ class TelaDadosCliente:
             font=("Inter", 24 * -1)
         )
 
-        self.canvas.create_text(
+        self.enderecoTxt = self.canvas.create_text(
             130.0,
             482.0,
             anchor="nw",
@@ -245,7 +245,7 @@ class TelaDadosCliente:
             font=("Inter", 24 * -1)
         )
 
-        self.canvas.create_text(
+        self.emailTxt = self.canvas.create_text(
             128.0,
             358.0,
             anchor="nw",

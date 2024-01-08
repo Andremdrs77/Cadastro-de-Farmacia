@@ -181,35 +181,65 @@ class App:
 
 
     def dadosCliente(self):
+        def MudarInfo():
+            InfoCliente = mostrarInformacoesCliente(cpf=self.janela.entry_1.get())
+            self.janela.canvas.itemconfig(self.janela.nomeTxt, text=f"Nome: {InfoCliente[0]}")
+            self.janela.canvas.itemconfig(self.janela.senhaTxt, text=f"Senha: {InfoCliente[1]}")
+            self.janela.canvas.itemconfig(self.janela.emailTxt, text=f"Email: {InfoCliente[2]}")
+            self.janela.canvas.itemconfig(self.janela.cepTXT, text=f"CEP: {InfoCliente[3]}")
+            self.janela.canvas.itemconfig(self.janela.telefoneTxt, text=f"Telefone: {InfoCliente[5]}")
+            self.janela.canvas.itemconfig(self.janela.datanascimentoTxt, text=f"Data de nascimento: {InfoCliente[6]}")
+            self.janela.canvas.itemconfig(self.janela.enderecoTxt, text=f"Endereço: {InfoCliente[7]}")
+
         if isinstance(self.janela, TelaDadosCliente):
             self.janela.button_1['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
             self.janela.button_3['command'] = lambda: deletarCliente(cpf=self.janela.entry_1.get())
+            self.janela.button_2['command'] = lambda: MudarInfo()
         else:
             self.janela.window.destroy()
             self.janela = TelaDadosCliente()
             self.janela.button_1['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
-            self.janela.button_3['command'] = lambda: deletarCliente(cpf=self.janela.entry_1.get())
+            self.janela.button_2['command'] = lambda: MudarInfo()
 
 
     def dadosVendedor(self):
+        def MudarInfo():
+            InfoVendedor = mostrarInformacoesVendedor(cpf=self.janela.entry_1.get())
+            self.janela.canvas.itemconfig(self.janela.nomeTxt, text=f"Nome: {InfoVendedor[0]}")
+            self.janela.canvas.itemconfig(self.janela.senhaTxt, text=f"Senha: {InfoVendedor[1]}")
+            self.janela.canvas.itemconfig(self.janela.empresaTxt, text=f"Empresa: {InfoVendedor[2]}")
+            self.janela.canvas.itemconfig(self.janela.emailTxt, text=f"Email: {InfoVendedor[4]}")
+
         if isinstance(self.janela, TelaDadosVendedor):
             self.janela.button_1['command'] = lambda: deletarVendedor(cpf=self.janela.entry_1.get())
             self.janela.button_2['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
+            self.janela.button_3['command'] = lambda: MudarInfo()
         else:
             self.janela.window.destroy()
             self.janela = TelaDadosVendedor()
             self.janela.button_2['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
             self.janela.button_1['command'] = lambda: deletarVendedor(cpf=self.janela.entry_1.get())
+            self.janela.button_3['command'] = lambda: MudarInfo()
 
 
     def dadosRemedio(self):
+        def MudarInfo():
+            InfoRemedio = mostrarInformacoesRemedio(lote=self.janela.entry_1.get())
+            self.janela.canvas.itemconfig(self.janela.nomeTxt, text=f"Nome: {InfoRemedio[0]}")
+            self.janela.canvas.itemconfig(self.janela.empresaTxt, text=f"Empresa: {InfoRemedio[1]}")
+            self.janela.canvas.itemconfig(self.janela.tipoTxt, text=f"Tipo: {InfoRemedio[3]}")
+            self.janela.canvas.itemconfig(self.janela.precoTxt, text=f"Preço: {InfoRemedio[4]}")
+            self.janela.canvas.itemconfig(self.janela.marcaTxt, text=f"Marca: {InfoRemedio[5]}")
+
         if isinstance(self.janela, TelaDadosRemedio):
             self.janela.button_1['command'] = lambda: deletarRemedio(lote=self.janela.entry_1.get())
             self.janela.button_2['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
+            self.janela.button_3['command'] = lambda: MudarInfo()
         else:
             self.janela.window.destroy()
             self.janela = TelaDadosRemedio()
             self.janela.button_2['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
             self.janela.button_1['command'] = lambda: deletarRemedio(lote=self.janela.entry_1.get())
+            self.janela.button_3['command'] = lambda: MudarInfo()
 
 aplicacao = App()

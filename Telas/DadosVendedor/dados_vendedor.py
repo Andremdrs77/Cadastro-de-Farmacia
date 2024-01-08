@@ -84,7 +84,7 @@ class TelaDadosVendedor:
             height=59.0
         )
 
-        self.canvas.create_text(
+        self.senhaTxt = self.canvas.create_text(
             131.0,
             357.0,
             anchor="nw",
@@ -92,8 +92,8 @@ class TelaDadosVendedor:
             fill="#000000",
             font=("Inter", 24 * -1)
         )
-
-        self.canvas.create_text(
+        
+        self.nomeTxt = self.canvas.create_text(
             132.0,
             245.0,
             anchor="nw",
@@ -118,7 +118,7 @@ class TelaDadosVendedor:
             fill="#C9CDCA",
             outline="")
         
-        self.canvas.create_text(
+        self.empresaTxt =self.canvas.create_text(
             131.0,
             304.0,
             anchor="nw",
@@ -173,7 +173,7 @@ class TelaDadosVendedor:
         )
 
 
-        self.canvas.create_text(
+        self.emailTxt = self.canvas.create_text(
             129.0,
             416.0,
             anchor="nw",
@@ -227,7 +227,7 @@ class TelaDadosVendedor:
             height=38.0
         )
 
-        self.canvas.create_text(
+        self.cpfTxt = self.canvas.create_text(
             732.0,
             359.0,
             anchor="nw",

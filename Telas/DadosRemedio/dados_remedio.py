@@ -93,7 +93,7 @@ class TelaDadosRemedio:
             height=59.0
         )
 
-        self.canvas.create_text(
+        self.empresaTxt = self.canvas.create_text(
             130.0,
             299.0,
             anchor="nw",
@@ -102,7 +102,7 @@ class TelaDadosRemedio:
             font=("Inter", 24 * -1)
         )
 
-        self.canvas.create_text(
+        self.nomeTxt = self.canvas.create_text(
             125.0,
             245.0,
             anchor="nw",
@@ -111,7 +111,7 @@ class TelaDadosRemedio:
             font=("Inter", 24 * -1)
         )
 
-        self.canvas.create_text(
+        self.precoTxt = self.canvas.create_text(
             125.0,
             421.0,
             anchor="nw",
@@ -155,7 +155,7 @@ class TelaDadosRemedio:
             height=37.0
         )
 
-        self.canvas.create_text(
+        self.tipoTxt = self.canvas.create_text(
             733.0,
             358.0,
             anchor="nw",
@@ -172,7 +172,7 @@ class TelaDadosRemedio:
             fill="#C9CDCA",
             outline="")
 
-        self.canvas.create_text(
+        self.marcaTxt = self.canvas.create_text(
             731.0,
             421.0,
             anchor="nw",
@@ -226,7 +226,7 @@ class TelaDadosRemedio:
             height=38.0
         )
 
-        self.canvas.create_text(
+        self.loteTxt = self.canvas.create_text(
             126.0,
             359.0,
             anchor="nw",

@@ -220,3 +220,83 @@ def restaurarBackup(nome_arquivo):
     except Exception as e:
         print(f"Erro ao restaurar dados do backup: {str(e)}")
         return None
+
+def mostrarInformacoesVendedor(cpf):
+    try:
+        farmacia = sqlite3.connect('farmacia_dados.db')
+        cursor = farmacia.cursor()
+
+        cursor.execute('''SELECT * FROM vendedor WHERE ven_cpf = ?''', (cpf,))
+        vendedor = cursor.fetchone()
+
+        if not vendedor:
+            print(f"Nenhum vendedor encontrado com o CPF {cpf}.")
+            return
+
+        return [vendedor[0],vendedor[1],vendedor[2],vendedor[3],vendedor[4],vendedor[5]]
+        # print("Nome:", vendedor[0])
+        # print("Senha:", vendedor[1])
+        # print("Empresa:", vendedor[2])
+        # print("CPF:", vendedor[3])
+        # print("Email:", vendedor[4])
+        # print("CEP:", vendedor[5])
+
+    except sqlite3.Error as e:
+        print(f"Erro ao mostrar informações do vendedor: {e}")
+    finally:
+        cursor.close()
+        farmacia.close()
+
+def mostrarInformacoesCliente(cpf):
+    try:
+        farmacia = sqlite3.connect('farmacia_dados.db')
+        cursor = farmacia.cursor()
+
+        cursor.execute('''SELECT * FROM cliente WHERE cli_cpf = ?''', (cpf,))
+        cliente = cursor.fetchone()
+
+        if not cliente:
+            print(f"Nenhum cliente encontrado com o CPF {cpf}.")
+            return
+
+        return [cliente[0], cliente[1], cliente[2], cliente[3], cliente[4], cliente[5], cliente[6], cliente[7]]
+        # print("Nome:", cliente[0])
+        # print("Senha:", cliente[1])
+        # print("Email:", cliente[2])
+        # print("CEP:", cliente[3])
+        # print("CPF:", cliente[4])
+        # print("Telefone:", cliente[5])
+        # print("Data:", cliente[6])
+        # print("Endereço:", cliente[7])
+
+    except sqlite3.Error as e:
+        print(f"Erro ao mostrar informações do cliente: {e}")
+    finally:
+        cursor.close()
+        farmacia.close()
+
+def mostrarInformacoesRemedio(lote):
+    try:
+        farmacia = sqlite3.connect('farmacia_dados.db')
+        cursor = farmacia.cursor()
+
+        cursor.execute('''SELECT * FROM remedio WHERE rem_lote = ?''', (lote,))
+        remedio = cursor.fetchone()
+
+        if not remedio:
+            print(f"Nenhum remédio encontrado com o lote {lote}.")
+            return
+
+        return [remedio[0], remedio[1], remedio[2], remedio[3], remedio[4], remedio[5]]
+        # print("Nome:", remedio[0])
+        # print("Empresa:", remedio[1])
+        # print("Lote:", remedio[2])
+        # print("Tipo:", remedio[3])
+        # print("Preço:", remedio[4])
+        # print("Marca:", remedio[5])
+
+    except sqlite3.Error as e:
+        print(f"Erro ao mostrar informações do remédio: {e}")
+    finally:
+        cursor.close()
+        farmacia.close()
