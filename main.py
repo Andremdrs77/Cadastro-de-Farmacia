@@ -100,7 +100,7 @@ class App:
             self.janela.button_1['command'] = lambda: self.cadastrarCliente()
             self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
             self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
-            self.janela.button_4['command'] = lambda: self.criarVendedor(nome=self.janela.entry_2.get(),
+            self.janela.button_4['command'] = lambda: criarVendedor(nome=self.janela.entry_2.get(),
                                                                         cpf=self.janela.entry_3.get(),
                                                                         cep=self.janela.entry_4.get(),
                                                                         email=self.janela.entry_5.get(),
@@ -112,7 +112,7 @@ class App:
             self.janela.button_1['command'] = lambda: self.cadastrarCliente()
             self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
             self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
-            self.janela.button_4['command'] = lambda: self.criarVendedor(nome=self.janela.entry_2.get(),
+            self.janela.button_4['command'] = lambda: criarVendedor(nome=self.janela.entry_2.get(),
                                                                         cpf=self.janela.entry_3.get(),
                                                                         cep=self.janela.entry_4.get(),
                                                                         email=self.janela.entry_5.get(),
@@ -125,7 +125,7 @@ class App:
             self.janela.button_1['command'] = lambda: self.cadastrarCliente()
             self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
             self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
-            self.janela.button_4['command'] = lambda: self.criarCliente(nome=self.janela.entry_1.get(),
+            self.janela.button_4['command'] = lambda: criarCliente(nome=self.janela.entry_1.get(),
                                                                         cpf=self.janela.entry_2.get(),
                                                                         cep=self.janela.entry_5.get(),
                                                                         email=self.janela.entry_7.get(),
@@ -140,7 +140,7 @@ class App:
             self.janela.button_1['command'] = lambda: self.cadastrarCliente()
             self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
             self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
-            self.janela.button_4['command'] = lambda: self.criarCliente(nome=self.janela.entry_1.get(),
+            self.janela.button_4['command'] = lambda: criarCliente(nome=self.janela.entry_1.get(),
                                                                         cpf=self.janela.entry_2.get(),
                                                                         cep=self.janela.entry_5.get(),
                                                                         email=self.janela.entry_7.get(),
@@ -155,7 +155,7 @@ class App:
         if isinstance(self.janela, TelaCadastrarRemedio):
             self.janela.button_1['command'] = lambda: self.cadastrarCliente()
             self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
-            self.janela.button_3['command'] = lambda: self.criarRemedio(empresa=self.janela.entry_1.get(),
+            self.janela.button_3['command'] = lambda: criarRemedio(empresa=self.janela.entry_1.get(),
                                                                         nome=self.janela.entry_2.get(),
                                                                         lote=self.janela.entry_3.get(),
                                                                         preco=self.janela.entry_4.get(),
@@ -168,7 +168,7 @@ class App:
             self.janela = TelaCadastrarRemedio()
             self.janela.button_1['command'] = lambda: self.cadastrarCliente()
             self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
-            self.janela.button_3['command'] = lambda: self.criarRemedio(empresa=self.janela.entry_1.get(),
+            self.janela.button_3['command'] = lambda: criarRemedio(empresa=self.janela.entry_1.get(),
                                                                         nome=self.janela.entry_2.get(),
                                                                         lote=self.janela.entry_3.get(),
                                                                         preco=self.janela.entry_4.get(),
