@@ -135,6 +135,8 @@ class TelaCadastrarCliente:
             font=("Inter Bold", 40 * -1)
         )
 
+        # NOME
+
         self.entry_image_1 = PhotoImage(
             file=relative_to_assets("entry_1.png"))
         self.entry_bg_1 = self.canvas.create_image(
@@ -155,6 +157,8 @@ class TelaCadastrarCliente:
             width=820.0,
             height=30.0
         )
+
+        # CPF
 
         self.entry_image_2 = PhotoImage(
             file=relative_to_assets("entry_2.png"))
@@ -177,6 +181,8 @@ class TelaCadastrarCliente:
             height=34.0
         )
 
+        # TELEFONE
+
         self.entry_image_3 = PhotoImage(
             file=relative_to_assets("entry_3.png"))
         self.entry_bg_3 = self.canvas.create_image(
@@ -197,6 +203,8 @@ class TelaCadastrarCliente:
             width=400.0,
             height=34.0
         )
+
+        # DATA NASCIMENTO
 
         self.entry_image_4 = PhotoImage(
             file=relative_to_assets("entry_4.png"))
@@ -219,6 +227,8 @@ class TelaCadastrarCliente:
             height=34.0
         )
 
+        # CEP
+
         self.entry_image_5 = PhotoImage(
             file=relative_to_assets("entry_5.png"))
         self.entry_bg_5 = self.canvas.create_image(
@@ -239,6 +249,9 @@ class TelaCadastrarCliente:
             width=400.0,
             height=36.0
         )
+
+        # ENDEREÇO
+
         self.entry_image_6 = PhotoImage(
             file=relative_to_assets("entry_6.png"))
         self.entry_bg_6 = self.canvas.create_image(
@@ -259,6 +272,8 @@ class TelaCadastrarCliente:
             width=820.0,
             height=34.0
         )
+
+        # EMAIL
 
         self.entry_image_7 = PhotoImage(
             file=relative_to_assets("entry_7.png"))
@@ -392,5 +407,3 @@ class TelaCadastrarCliente:
             height=37.0
         )
         self.window.resizable(False, False)
-        self.window.mainloop()
-a = TelaCadastrarCliente()
