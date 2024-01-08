@@ -20,25 +20,26 @@ class App:
         self.janela = TelaLogin()
         self.cnpj_conta = None
 
-        self.janela.button_1.configure(command=lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa=''))
-        self.janela.button_2.configure(command=lambda: self.criarConta())
+        self.janela.button_1['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+        self.janela.button_2['command'] = lambda: self.criarConta()
 
         self.janela.window.mainloop()
         
 
     def GetNomeEmpresa(self, cnpj):
         print(cnpj)
-        # try:
-        #     with sqlite3.connect('farmacia_dados.db') as farmacia:
-        #         cursor = farmacia.cursor()
-        #         cursor.execute('SELECT emp_nome FROM empresa WHERE emp_cnpj = ?', (cnpj,))
-        #         result = cursor.fetchone()
-        #         if result:
-        #             return result[0]
-        #         else:
-        #             return "Empresa não encontrada"
-        # except Exception as e:
-        #     print(f"Erro ao obter nome da empresa: {e}")
+        try:
+            with sqlite3.connect('farmacia_dados.db') as farmacia:
+                cursor = farmacia.cursor()
+                cursor.execute('SELECT emp_nome FROM empresa WHERE emp_cnpj = ?', (cnpj,))
+                result = cursor.fetchone()
+                if result:
+                    return result[0]
+                else:
+                    return "Empresa não encontrada"
+        except Exception as e:
+            print(f"Erro ao obter nome da empresa: {e}")
+
 
     def login(self):
         if isinstance(self.login, TelaLogin):
