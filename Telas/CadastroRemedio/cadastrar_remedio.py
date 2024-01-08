@@ -225,6 +225,8 @@ class TelaCadastrarRemedio:
             height=47.0
         )
 
+        # TIPO
+
         self.entry_image_6 = PhotoImage(
             file=relative_to_assets("entry_6.png"))
         self.entry_bg_6 = self.canvas.create_image(
