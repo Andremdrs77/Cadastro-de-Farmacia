@@ -1,6 +1,5 @@
 import sqlite3
 
-
 def criarCliente(nome, senha, email, cep, cpf, telefone, data, endereco):
     try:
         farmacia = sqlite3.connect('farmacia_dados.db')
@@ -103,3 +102,67 @@ def criarVendedor(nome, senha, empresa, cpf, email, cep, telefone, data, enderec
         cursor.close()
         farmacia.close()
 
+def deletarCliente(cpf):
+    try:
+        farmacia = sqlite3.connect('farmacia_dados.db')
+        cursor = farmacia.cursor()
+
+        cursor.execute('''DELETE FROM cliente WHERE cli_cpf = ?''', (str(cpf)))
+
+        farmacia.commit()
+
+    except sqlite3.Error as e:
+        print(f"Erro ao remover cliente: {e}")
+    finally:
+        cursor.close()
+        farmacia.close()
+
+def deletarVendedor(cpf):
+    try:
+        farmacia = sqlite3.connect('farmacia_dados.db')
+        cursor = farmacia.cursor()
+
+        cursor.execute('''DELETE FROM vendedor WHERE ven_cpf = ?''', (str(cpf)))
+
+        farmacia.commit()
+
+    except sqlite3.Error as e:
+        print(f"Erro ao remover vendedor: {e}")
+    finally:
+        cursor.close()
+        farmacia.close()
+
+def deletarRemedio(lote):
+    try:
+        farmacia = sqlite3.connect('farmacia_dados.db')
+        cursor = farmacia.cursor()
+
+        cursor.execute('''DELETE FROM remedio WHERE rem_lote = ?''', (str(lote)))
+
+        farmacia.commit()
+
+    except sqlite3.Error as e:
+        print(f"Erro ao remover remédio: {e}")
+    finally:
+        cursor.close()
+        farmacia.close()
+
+def mostrarVendedores():
+    try:
+        farmacia = sqlite3.connect('farmacia_dados.db')
+        cursor = farmacia.cursor()
+
+        print('Tabelas:')
+
+        for tabela in cursor.fetchall():
+            print("%s" % (tabela))
+
+        farmacia.commit()
+
+    except sqlite3.Error as e:
+        print(f"Erro ao mostrar vendedores: {e}")
+    finally:
+        cursor.close()
+        farmacia.close()
+
+mostrarVendedores()
