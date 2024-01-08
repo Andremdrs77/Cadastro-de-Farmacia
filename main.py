@@ -17,20 +17,20 @@ from Funcoes .crud import *
 
 class App:
     def __init__(self):
-        self.tela = TelaLogin()
+        self.janela = TelaLogin()
         self.cnpj = None
 
-        self.tela.button_1.configure(command=lambda: self.infoTelas(tela="Menu", cnpj=self.tela.entry_1.get()))
-        self.tela.button_2.configure(command=lambda: self.infoTelas(tela="criarConta"))
+        self.janela.button_1.configure(command=lambda: self.infoTelas(tela="Menu", cnpj=self.janela.entry_1.get()))
+        self.janela.button_2.configure(command=lambda: self.infoTelas(tela="criarConta"))
 
-        self.tela.window.mainloop()
+        self.janela.window.mainloop()
         
-        
+
     def infoTelas(self, tela, cnpj):
         if tela == "Menu":
-            self.tela = self.menu(cnpj)
+            self.janela = self.menu(cnpj)
             nome_empresa = self.GetNomeEmpresa(cnpj)
-            self.tela.nomeEmpresa = nome_empresa
+            self.janela.nomeEmpresa = nome_empresa
 
         elif tela == "":
             pass
@@ -52,49 +52,49 @@ class App:
 
 
     def login(self):
-        self.tela.window.destroy()
+        self.janela.window.destroy()
         
-        self.tela = TelaLogin()
+        self.janela = TelaLogin()
         self.cnpj = None
 
-        self.tela.button_1.configure(command=lambda: self.infoTelas(tela="Menu", cnpj=self.tela.entry_1.get()))
+        self.janela.button_1.configure(command=lambda: self.infoTelas(tela="Menu", cnpj=self.janela.entry_1.get()))
 
 
     def menu(self, cnpj):
-        self.tela.window.destroy()
+        self.janela.window.destroy()
 
-        self.tela = TelaMenu()
+        self.janela = TelaMenu()
 
 
     def criarConta(self):
-        self.tela.window.destroy()
+        self.janela.window.destroy()
 
 
     def cadastrarVendedor(self, cnpj):
-        self.tela.window.destroy()
+        self.janela.window.destroy()
 
 
     def cadastrarCliente(self, cnpj):
-        self.tela.window.destroy()
+        self.janela.window.destroy()
 
 
     def cadastrarRemedio(self, cnpj):
-        self.tela.window.destroy()
+        self.janela.window.destroy()
 
 
     def dadosEmpresa(self, cnpj):
-        self.tela.window.destroy()
+        self.janela.window.destroy()
 
 
     def dadosCliente(self, cnpj):
-        self.tela.window.destroy()
+        self.janela.window.destroy()
 
 
     def dadosVendedor(self, cnpj):
-        self.tela.window.destroy()
+        self.janela.window.destroy()
 
 
     def dadosRemedio(self, cnpj):
-        self.tela.window.destroy()
+        self.janela.window.destroy()
 
 aplicacao = App()
