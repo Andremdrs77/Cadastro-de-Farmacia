@@ -26,21 +26,6 @@ class App:
         self.janela.window.mainloop()
         
 
-    def infoTelas(self, tela, cnpj):
-        self.cnpj = cnpj
-
-        if tela == "Login":
-            self.janela = TelaLogin()
-
-        elif tela == "Menu":
-            nome_empresa = self.GetNomeEmpresa(cnpj)
-            self.janela = self.menu(nome_empresa)
-
-        elif tela == "CriarConta":
-            pass
-
-
-
     def GetNomeEmpresa(self, cnpj):
         try:
             with sqlite3.connect('farmacia_dados.db') as farmacia:
@@ -53,6 +38,21 @@ class App:
                     return "Empresa não encontrada"
         except Exception as e:
             print(f"Erro ao obter nome da empresa: {e}")
+
+
+    def infoTelas(self, tela, cnpj):
+        self.cnpj = cnpj
+
+        if tela == "Login":
+            self.janela = TelaLogin()
+
+        elif tela == "Menu":
+            nome_empresa = self.GetNomeEmpresa(cnpj)
+            self.janela = self.menu(nome_empresa)
+
+        elif tela == "CriarConta":
+            self.janela = self.criarConta()
+
 
 
     def login(self):
@@ -85,28 +85,43 @@ class App:
     def cadastrarVendedor(self, cnpj):
         self.janela.window.destroy()
 
+        self.janela = TelaCadastrarVendedor
+
 
     def cadastrarCliente(self, cnpj):
         self.janela.window.destroy()
+
+        self.janela = TelaCadastrarCliente()
 
 
     def cadastrarRemedio(self, cnpj):
         self.janela.window.destroy()
 
+        self.janela = TelaCadastrarRemedio()
+
 
     def dadosEmpresa(self, cnpj):
         self.janela.window.destroy()
+
+        self.janela = TelaDadosEmpresa()
 
 
     def dadosCliente(self):
         self.janela.window.destroy()
 
+        self.janela = TelaDadosCliente()
+
 
     def dadosVendedor(self):
         self.janela.window.destroy()
 
+        self.janela = TelaDadosVendedor()
+
 
     def dadosRemedio(self):
         self.janela.window.destroy()
+
+        self.janela = TelaDadosRemedio()
+
 
 aplicacao = App()

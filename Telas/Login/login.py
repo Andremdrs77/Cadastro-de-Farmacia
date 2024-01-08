@@ -146,13 +146,13 @@ class TelaLogin():
         )
         self.window.resizable(False, False)
 
-    def login(self):
-        cnpj = self.entry_1.get()
-        senha = self.entry_2.get()
-        banco = crud.banco
-        cursor = crud.cursor
-        cursor.execute(f"SELECT emp_senha FROM empresa WHERE emp_cnpj = {cnpj}")
-        senha_bd = cursor.fetchall()
-        print(senha_bd[0])
-        banco.close()
+    # def login(self):
+    #     cnpj = self.entry_1.get()
+    #     senha = self.entry_2.get()
+    #     banco = crud.banco
+    #     cursor = crud.cursor
+    #     cursor.execute(f"SELECT emp_senha FROM empresa WHERE emp_cnpj = {cnpj}")
+    #     senha_bd = cursor.fetchall()
+    #     print(senha_bd[0])
+    #     banco.close()
         
