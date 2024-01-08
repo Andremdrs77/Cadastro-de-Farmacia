@@ -1,4 +1,5 @@
 import sqlite3
+import pickle
 
 def criarCliente(nome, senha, email, cep, cpf, telefone, data, endereco):
     try:
@@ -192,3 +193,23 @@ def mostrarPrecos():
         cursor.close()
         farmacia.close()
 
+def fazerBackup(nome_arquivo, dados):
+    try:
+        with open(nome_arquivo, 'wb') as arquivo:
+            pickle.dump(dados, arquivo)
+        print(f"Backup dos dados realizado com sucesso no arquivo: {nome_arquivo}")
+    except Exception as e:
+        print(f"Erro ao fazer backup dos dados: {str(e)}")
+
+def restaurarBackup(nome_arquivo):
+    try:
+        with open(nome_arquivo, 'rb') as arquivo:
+            dados_restaurados = pickle.load(arquivo)
+        print(f"Dados restaurados com sucesso do arquivo: {nome_arquivo}")
+        return dados_restaurados
+    except FileNotFoundError:
+        print(f"Arquivo de backup não encontrado: {nome_arquivo}")
+        return None
+    except Exception as e:
+        print(f"Erro ao restaurar dados do backup: {str(e)}")
+        return None
