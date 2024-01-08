@@ -38,7 +38,7 @@ class TelaMenu:
         )
 
         self.canvas.place(x = 0, y = 0)
-        self.canvas.create_text(
+        self.textoEmpresa = self.canvas.create_text(
             376.0,
             100.0,
             anchor="nw",

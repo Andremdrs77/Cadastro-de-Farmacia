@@ -3,7 +3,6 @@
 # https://github.com/ParthJadhav/Tkinter-Designer
 
 from pathlib import Path
-
 # from tkinter import *
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
@@ -58,7 +57,7 @@ class TelaLogin():
             image=self.button_image_1,
             borderwidth=0,
             highlightthickness=0,
-            command= self.login,
+            command=lambda: print("button_2 clicked"),
             relief="flat"
         )
         self.button_1.place(
@@ -145,14 +144,3 @@ class TelaLogin():
             height=29.0
         )
         self.window.resizable(False, False)
-
-    # def login(self):
-    #     cnpj = self.entry_1.get()
-    #     senha = self.entry_2.get()
-    #     banco = crud.banco
-    #     cursor = crud.cursor
-    #     cursor.execute(f"SELECT emp_senha FROM empresa WHERE emp_cnpj = {cnpj}")
-    #     senha_bd = cursor.fetchall()
-    #     print(senha_bd[0])
-    #     banco.close()
-        
