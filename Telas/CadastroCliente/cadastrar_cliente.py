@@ -314,6 +314,8 @@ class TelaCadastrarCliente:
             font=("Inter SemiBold", 30 * -1)
         )
 
+        # SENHA
+
         self.entry_image_8 = PhotoImage(
             file=relative_to_assets("entry_8.png"))
         self.entry_bg_8 = self.canvas.create_image(
