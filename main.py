@@ -27,7 +27,7 @@ class App:
 
     def infoTelas(self, tela, cnpj):
         if tela == "Menu":
-            self.tela = TelaMenu(cnpj)
+            self.tela = self.menu(cnpj)
             nome_empresa = self.GetNomeEmpresa(cnpj)
             self.tela.nomeEmpresa = nome_empresa
 
@@ -63,6 +63,7 @@ class App:
     def menu(self, cnpj):
         self.tela.window.destroy()
 
+        self.tela = TelaMenu()
 
     def criarConta(self):
         self.tela.window.destroy()
