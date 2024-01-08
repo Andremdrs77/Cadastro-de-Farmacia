@@ -233,7 +233,12 @@ class TelaCadastrarCliente:
             highlightthickness=0,
             font=("Arial", 15),
         )
-
+        self.entry_5.place(
+            x=499.0,
+            y=247.0,
+            width=400.0,
+            height=36.0
+        )
         self.entry_image_6 = PhotoImage(
             file=relative_to_assets("entry_6.png"))
         self.entry_bg_6 = self.canvas.create_image(
@@ -387,3 +392,5 @@ class TelaCadastrarCliente:
             height=37.0
         )
         self.window.resizable(False, False)
+        self.window.mainloop()
+a = TelaCadastrarCliente()

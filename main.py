@@ -123,13 +123,13 @@ class App:
             self.janela.button_1['command'] = lambda: self.cadastrarCliente()
             self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
             self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
-            self.janela.button_4['command'] = lambda: self.ciarCliente(nome=self.janela.entry_1.get(),
+            self.janela.button_4['command'] = lambda: self.criarCliente(nome=self.janela.entry_1.get(),
                                                                         cpf=self.janela.entry_2.get(),
-                                                                        cep=self.janela.entry_3.get(),
-                                                                        email=self.janela.entry_4.get(),
-                                                                        telefone=self.janela.entry_5.get(),
-                                                                        data=self.janela.entry_6.get(),
-                                                                        endereco=self.janela.entry_7.get(),
+                                                                        cep=self.janela.entry_5.get(),
+                                                                        email=self.janela.entry_7.get(),
+                                                                        telefone=self.janela.entry_3.get(),
+                                                                        data=self.janela.entry_4.get(),
+                                                                        endereco=self.janela.entry_6.get(),
                                                                         senha=self.janela.entry_8.get())
             self.janela.button_5['command'] = lambda: self.menu(cnpj='', nome_empresa='')
         else:
@@ -140,12 +140,12 @@ class App:
             self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
             self.janela.button_4['command'] = lambda: self.criarCliente(nome=self.janela.entry_1.get(),
                                                                         cpf=self.janela.entry_2.get(),
-                                                                        cep=self.janela.entry_3.get(),
-                                                                        email=self.janela.entry_4.get(),
-                                                                        telefone=self.janela.entry_5.get(),
-                                                                        data=self.janela.entry_6.get(),
-                                                                        endereco=self.janela.entry_7.get(),
-                                                                        senha=self.janela.entry_8.get(),)
+                                                                        cep=self.janela.entry_5.get(),
+                                                                        email=self.janela.entry_7.get(),
+                                                                        telefone=self.janela.entry_3.get(),
+                                                                        data=self.janela.entry_4.get(),
+                                                                        endereco=self.janela.entry_6.get(),
+                                                                        senha=self.janela.entry_8.get())
             self.janela.button_5['command'] = lambda: self.menu(cnpj='', nome_empresa='')
 
 
