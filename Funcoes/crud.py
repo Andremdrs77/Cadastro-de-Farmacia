@@ -75,6 +75,7 @@ def criarRemedio(nome, empresa, lote, tipo, preco, marca):
     finally:
         cursor.close()
         farmacia.close()
+        mostrarPrecos()
 
 
 def criarVendedor(nome, senha, empresa, cpf, email, cep):
@@ -100,6 +101,7 @@ def criarVendedor(nome, senha, empresa, cpf, email, cep):
     finally:
         cursor.close()
         farmacia.close()
+        mostrarVendedores()
 
 
 def deletarCliente(cpf):
