@@ -53,6 +53,7 @@ class App:
 
 
     def menu(self, cnpj, nome_empresa):
+        self.cnpj = cnpj
         nome_empresa = self.GetNomeEmpresa(cnpj)
         if isinstance(self.janela, TelaMenu):
             self.janela.button_1['command'] = lambda: self.cadastrarVendedor()
@@ -77,12 +78,12 @@ class App:
     def criarConta(self):
         if isinstance(self.janela, TelaCriarConta):
             self.janela.button_1['command'] = lambda: self.login()
-            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+            self.janela.button_2['command'] = lambda: self.menu(cnpj='', nome_empresa='')
         else:
             self.janela.window.destroy()
             self.janela = TelaCriarConta()
             self.janela.button_1['command'] = lambda: self.login()
-            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+            self.janela.button_2['command'] = lambda: self.menu(cnpj='', nome_empresa='')
 
 
 
@@ -92,7 +93,7 @@ class App:
             self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
             self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
             self.janela.button_4['command'] = lambda: self.dadosVendedor()
-            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+            self.janela.button_5['command'] = lambda: self.menu(cnpj='', nome_empresa='')
         else:
             self.janela.window.destroy()
             self.janela = TelaCadastrarVendedor()
@@ -100,7 +101,7 @@ class App:
             self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
             self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
             self.janela.button_4['command'] = lambda: self.dadosVendedor()
-            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+            self.janela.button_5['command'] = lambda: self.menu(cnpj='', nome_empresa='')
 
 
     def cadastrarCliente(self):
@@ -108,16 +109,32 @@ class App:
             self.janela.button_1['command'] = lambda: self.cadastrarCliente()
             self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
             self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
-            self.janela.button_4['command'] = lambda: self.dadosCliente()
-            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+            self.janela.button_4['command'] = lambda: self.ciarCliente(nome=self.janela.entry_1.get(),
+                                                                        cpf=self.janela.entry_2.get(),
+                                                                        cep=self.janela.entry_3.get(),
+                                                                        email=self.janela.entry_4.get(),
+                                                                        telefone=self.janela.entry_5.get(),
+                                                                        data=self.janela.entry_6.get(),
+                                                                        endereco=self.janela.entry_7.get(),
+                                                                        senha=self.janela.entry_8.get(),
+                                                                        cnpj=self.cnpj())
+            self.janela.button_5['command'] = lambda: self.menu(cnpj='', nome_empresa='')
         else:
             self.janela.window.destroy()
             self.janela = TelaCadastrarCliente()
             self.janela.button_1['command'] = lambda: self.cadastrarCliente()
             self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
             self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
-            self.janela.button_4['command'] = lambda: self.dadosCliente()
-            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+            self.janela.button_4['command'] = lambda: self.criarCliente(nome=self.janela.entry_1.get(),
+                                                                        cpf=self.janela.entry_2.get(),
+                                                                        cep=self.janela.entry_3.get(),
+                                                                        email=self.janela.entry_4.get(),
+                                                                        telefone=self.janela.entry_5.get(),
+                                                                        data=self.janela.entry_6.get(),
+                                                                        endereco=self.janela.entry_7.get(),
+                                                                        senha=self.janela.entry_8.get(),
+                                                                        cnpj=self.cnpj())
+            self.janela.button_5['command'] = lambda: self.menu(cnpj='', nome_empresa='')
 
 
     def cadastrarRemedio(self):
@@ -126,7 +143,7 @@ class App:
             self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
             self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
             self.janela.button_4['command'] = lambda: self.dadosRemedio()
-            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+            self.janela.button_5['command'] = lambda: self.menu(cnpj='', nome_empresa='')
         else:
             self.janela.window.destroy()
             self.janela = TelaCadastrarRemedio()
@@ -134,33 +151,33 @@ class App:
             self.janela.button_2['command'] = lambda: self.cadastrarVendedor()
             self.janela.button_3['command'] = lambda: self.cadastrarRemedio()
             self.janela.button_4['command'] = lambda: self.dadosRemedio()
-            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+            self.janela.button_5['command'] = lambda: self.menu(cnpj='', nome_empresa='')
 
 
     def dadosCliente(self):
         if isinstance(self.janela, TelaDadosCliente):
-            self.janela.button_1['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+            self.janela.button_1['command'] = lambda: self.menu(cnpj='', nome_empresa='')
         else:
             self.janela.window.destroy()
             self.janela = TelaDadosCliente()
-            self.janela.button_1['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+            self.janela.button_1['command'] = lambda: self.menu(cnpj='', nome_empresa='')
 
 
     def dadosVendedor(self):
         if isinstance(self.janela, TelaDadosVendedor):
-            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+            self.janela.button_2['command'] = lambda: self.menu(cnpj='', nome_empresa='')
         else:
             self.janela.window.destroy()
             self.janela = TelaDadosVendedor()
-            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+            self.janela.button_2['command'] = lambda: self.menu(cnpj='', nome_empresa='')
 
 
     def dadosRemedio(self):
         if isinstance(self.janela, TelaDadosRemedio):
-            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+            self.janela.button_2['command'] = lambda: self.menu(cnpj='', nome_empresa='')
         else:
             self.janela.window.destroy()
             self.janela = TelaDadosRemedio()
-            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.janela.entry_1.get(), nome_empresa='')
+            self.janela.button_2['command'] = lambda: self.menu(cnpj='', nome_empresa='')
 
 aplicacao = App()
