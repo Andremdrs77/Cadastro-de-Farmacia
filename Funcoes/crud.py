@@ -37,10 +37,11 @@ def criarEmpresa(nome, senha, cnpj, email):
                             emp_nome TEXT,
                             emp_senha TEXT,
                             emp_email TEXT,
-                            emp_cnpj TEXT
+                            emp_cnpj TEXT,
+                            emp_cep TEXT
                          )''')
 
-        cursor.execute('INSERT INTO empresa (emp_nome, emp_senha, emp_email, emp_cnpj) VALUES (?, ?, ?, ?)', (nome, senha, email, cnpj))
+        cursor.execute('INSERT INTO empresa (emp_nome, emp_senha, emp_email, emp_cnpj, emp_cep) VALUES (?, ?, ?, ?, ?)', (nome, senha, email, cnpj, cep))
 
         farmacia.commit()
         print("Empresa criada com sucesso!")
