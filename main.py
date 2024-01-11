@@ -4,7 +4,6 @@ from Telas .Login .login import *
 from Telas .Menu .menu import *
 from Telas .DadosVendedor .dados_vendedor import *
 from Telas .DadosRemedio .dados_remedio import *
-# from Telas .DadosEmpresa .dados_empresa import *
 from Telas .DadosCliente .dados_cliente import *
 from Telas .Login .login import *
 from Telas .CriarConta .criar_conta import *
@@ -25,7 +24,8 @@ class App:
             senha = self.janela.entry_2.get()
             verificarEmpresa = verificarEmpresaSenha(cnpj, senha)
             if verificarEmpresa:
-                self.menu(cnpj=cnpj, nome_empresa='')
+                self.cnpj_conta = cnpj
+                self.menu(cnpj=cnpj, nome_empresa=self.GetNomeEmpresa(self.cnpj_conta))
 
         self.janela.button_1['command'] = lambda: Logar()
         self.janela.button_2['command'] = lambda: self.criarConta()
@@ -34,14 +34,13 @@ class App:
         
 
     def GetNomeEmpresa(self, cnpj):
-        print(cnpj)
         try:
             with sqlite3.connect('farmacia_dados.db') as farmacia:
                 cursor = farmacia.cursor()
                 cursor.execute('SELECT emp_nome FROM empresa WHERE emp_cnpj = ?', (cnpj,))
                 result = cursor.fetchone()
                 if result:
-                    return result[0]
+                    return str(result[0])
                 else:
                     return "Empresa não encontrada"
         except Exception as e:
@@ -54,7 +53,8 @@ class App:
             senha = self.janela.entry_2.get()
             verificarEmpresa = verificarEmpresaSenha(cnpj, senha)
             if verificarEmpresa:
-                self.menu(cnpj=cnpj, nome_empresa='')
+                self.cnpj_conta = cnpj
+                self.menu(cnpj=cnpj, nome_empresa=self.GetNomeEmpresa(self.cnpj_conta))
 
         if isinstance(self.janela, TelaLogin):
             self.janela.button_1['command'] = Logar
@@ -77,6 +77,7 @@ class App:
             self.janela.button_5['command'] = lambda: self.cadastrarRemedio()
             self.janela.button_6['command'] = lambda: self.dadosRemedio()
             self.janela.button_7['command'] = lambda: self.login()
+            self.janela.canvas.itemconfig(self.janela.textoEmpresa, text=f'Bem-vindo(a),\n{nome_empresa}!')
         else:
             self.janela.window.destroy()
             self.janela = TelaMenu()
@@ -87,7 +88,7 @@ class App:
             self.janela.button_5['command'] = lambda: self.cadastrarRemedio()
             self.janela.button_6['command'] = lambda: self.dadosRemedio()
             self.janela.button_7['command'] = lambda: self.login()
-
+            self.janela.canvas.itemconfig(self.janela.textoEmpresa, text=f'Bem-vindo(a),\n{nome_empresa}!')
 
     def criarConta(self):
         if isinstance(self.janela, TelaCriarConta):
@@ -108,7 +109,6 @@ class App:
                                                                         nome=self.janela.entry_6.get())
 
 
-
     def cadastrarVendedor(self):
         if isinstance(self.janela, TelaCadastrarVendedor):
             self.janela.button_1['command'] = lambda: self.cadastrarCliente()
@@ -120,7 +120,7 @@ class App:
                                                                         email=self.janela.entry_5.get(),
                                                                         senha=self.janela.entry_1.get(),
                                                                         empresa=self.GetNomeEmpresa(self.cnpj_conta))
-            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
+            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa=self.GetNomeEmpresa(self.cnpj_conta))
         else:
             self.janela.window.destroy()
             self.janela = TelaCadastrarVendedor()
@@ -133,7 +133,7 @@ class App:
                                                                         email=self.janela.entry_5.get(),
                                                                         senha=self.janela.entry_1.get(),
                                                                         empresa=self.GetNomeEmpresa(self.cnpj_conta))
-            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
+            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa=self.GetNomeEmpresa(self.cnpj_conta))
 
 
     def cadastrarCliente(self):
@@ -149,7 +149,7 @@ class App:
                                                                         data=self.janela.entry_4.get(),
                                                                         endereco=self.janela.entry_6.get(),
                                                                         senha=self.janela.entry_8.get())
-            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
+            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa=self.GetNomeEmpresa(self.cnpj_conta))
         else:
             self.janela.window.destroy()
             self.janela = TelaCadastrarCliente()
@@ -164,7 +164,7 @@ class App:
                                                                         data=self.janela.entry_4.get(),
                                                                         endereco=self.janela.entry_6.get(),
                                                                         senha=self.janela.entry_8.get())
-            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
+            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa=self.GetNomeEmpresa(self.cnpj_conta))
 
 
     def cadastrarRemedio(self):
@@ -178,7 +178,7 @@ class App:
                                                                         marca=self.janela.entry_5.get(),
                                                                         tipo=self.janela.entry_6.get())
             self.janela.button_3['command'] = lambda: self.dadosRemedio()
-            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
+            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa=self.GetNomeEmpresa(self.cnpj_conta))
         else:
             self.janela.window.destroy()
             self.janela = TelaCadastrarRemedio()
@@ -191,7 +191,7 @@ class App:
                                                                         marca=self.janela.entry_5.get(),
                                                                         tipo=self.janela.entry_6.get())
             self.janela.button_3['command'] = lambda: self.dadosRemedio()
-            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
+            self.janela.button_5['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa=self.GetNomeEmpresa(self.cnpj_conta))
 
 
     def dadosCliente(self):
@@ -218,13 +218,13 @@ class App:
                 print(f"Erro ao obter informações do cliente: {e}")
 
         if isinstance(self.janela, TelaDadosCliente):
-            self.janela.button_1['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
+            self.janela.button_1['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa=self.GetNomeEmpresa(self.cnpj_conta))
             self.janela.button_3['command'] = lambda: deletarCliente(cpf=self.janela.entry_1.get())
             self.janela.button_2['command'] = lambda: MudarInfo()
         else:
             self.janela.window.destroy()
             self.janela = TelaDadosCliente()
-            self.janela.button_1['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
+            self.janela.button_1['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa=self.GetNomeEmpresa(self.cnpj_conta))
             self.janela.button_3['command'] = lambda: deletarCliente(cpf=self.janela.entry_1.get())
             self.janela.button_2['command'] = lambda: MudarInfo()
 
@@ -248,12 +248,12 @@ class App:
 
         if isinstance(self.janela, TelaDadosVendedor):
             self.janela.button_1['command'] = lambda: deletarVendedor(cpf=self.janela.entry_1.get())
-            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
+            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa=self.GetNomeEmpresa(self.cnpj_conta))
             self.janela.button_3['command'] = lambda: MudarInfo()
         else:
             self.janela.window.destroy()
             self.janela = TelaDadosVendedor()
-            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
+            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa=self.GetNomeEmpresa(self.cnpj_conta))
             self.janela.button_1['command'] = lambda: deletarVendedor(cpf=self.janela.entry_1.get())
             self.janela.button_3['command'] = lambda: MudarInfo()
 
@@ -266,7 +266,7 @@ class App:
                     self.janela.canvas.itemconfig(self.janela.nomeTxt, text=f"Nome: {InfoRemedio[0]}")
                     self.janela.canvas.itemconfig(self.janela.empresaTxt, text=f"Empresa: {InfoRemedio[1]}")
                     self.janela.canvas.itemconfig(self.janela.tipoTxt, text=f"Tipo: {InfoRemedio[3]}")
-                    self.janela.canvas.itemconfig(self.janela.precoTxt, text=f"Preço: {InfoRemedio[4]}")
+                    self.janela.canvas.itemconfig(self.janela.precoTxt, text=f"Preço: R$ {str(InfoRemedio[4]).replace('.',',')}" + '0')
                     self.janela.canvas.itemconfig(self.janela.marcaTxt, text=f"Marca: {InfoRemedio[5]}")
                 else:
                     self.janela.canvas.itemconfig(self.janela.nomeTxt, text="Nome: ")
@@ -279,12 +279,12 @@ class App:
 
         if isinstance(self.janela, TelaDadosRemedio):
             self.janela.button_1['command'] = lambda: deletarRemedio(lote=self.janela.entry_1.get())
-            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
+            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa=self.GetNomeEmpresa(self.cnpj_conta))
             self.janela.button_3['command'] = lambda: MudarInfo()
         else:
             self.janela.window.destroy()
             self.janela = TelaDadosRemedio()
-            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa='')
+            self.janela.button_2['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa=self.GetNomeEmpresa(self.cnpj_conta))
             self.janela.button_1['command'] = lambda: deletarRemedio(lote=self.janela.entry_1.get())
             self.janela.button_3['command'] = lambda: MudarInfo()
 

@@ -186,7 +186,7 @@ class TelaDadosCliente:
             132.0,
             245.0,
             anchor="nw",
-            text="”Nome:“",
+            text="Nome:",
             fill="#000000",
             font=("Inter", 24 * -1)
         )
