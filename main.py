@@ -221,7 +221,7 @@ class App:
             self.janela.button_1['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa=self.GetNomeEmpresa(self.cnpj_conta))
             self.janela.button_3['command'] = lambda: deletarCliente(cpf=self.janela.entry_1.get())
             self.janela.button_2['command'] = lambda: MudarInfo()
-        else: #Vascasjfhasfuoasgfiasufasyifasfasifhasfu
+        else: #Vascas
             self.janela.window.destroy()
             self.janela = TelaDadosCliente()
             self.janela.button_1['command'] = lambda: self.menu(cnpj=self.cnpj_conta, nome_empresa=self.GetNomeEmpresa(self.cnpj_conta))
